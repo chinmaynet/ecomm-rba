@@ -1,0 +1,46 @@
+{
+  "seller": [
+    {
+      "name": "Chinmay",
+      "email": "cchimay@gmail.com",
+      "password": "121212",
+      "id": 1
+    },
+    {
+      "name": "Chinmay",
+      "email": "test@123",
+      "password": "test@123",
+      "id": 2
+    },
+    {
+      "name": "asd",
+      "email": "asd@123",
+      "password": "123123123123",
+      "id": 3
+    },
+    {
+      "name": "test1",
+      "email": "test1@123",
+      "password": "test1@123",
+      "id": 4
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "name": "Siddhesh Sindhikar",
+      "email": "ss@gmail.com",
+      "password": "ss@gmail.com",
+      "id": 7
+    }
+  ]
+}

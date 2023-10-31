@@ -1,0 +1,32 @@
+<div class="content">
+    <mat-card >
+        <div class="prodTable">
+            <mat-card-title><h1>Orders</h1></mat-card-title>
+        </div>
+        
+        <mat-card-content>
+            <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+                    
+                    <ng-container matColumnDef="orderNumber">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Number </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{ row.orderNumber }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="customerName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{ row.customerName }} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{ row.customerName }} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                </mat-table>
+            </div>            
+        </mat-card-content>
+    </mat-card>  
+</div>

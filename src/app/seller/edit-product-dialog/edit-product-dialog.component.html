@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Edit Product</h1>
+
+<div mat-dialog-content>
+  <form #editProductForm="ngForm" class="edit-form" (ngSubmit)="save()">
+    <div class="form-row">
+      
+      <mat-form-field class="form-field">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Name" name="name" [(ngModel)]="editingProduct.name" required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Product Price</mat-label>
+        <input matInput placeholder="Price" name="price" [(ngModel)]="editingProduct.price" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      
+      <mat-form-field class="form-field">
+        <mat-label>Product Color</mat-label>
+        <input matInput placeholder="Color" name="color" [(ngModel)]="editingProduct.color" required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Product Category</mat-label>
+        <input matInput placeholder="Category" name="category" [(ngModel)]="editingProduct.catagory" required>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+    
+      <mat-form-field>
+        <mat-label>Product Description</mat-label>
+        <textarea class="description" matInput placeholder="Description" name="description" [(ngModel)]="editingProduct.description"
+          required></textarea>
+        </mat-form-field>
+     
+    </div>
+    <img [src]="imageURL" style="width: 150px;height: 150px;">
+    <div class="form-row">
+      <mat-label>Image Files (JPEG/JPG)</mat-label>
+      <input type="file" name="ImageFiles" [(ngModel)]="editingProduct.ImageFiles" (change)="onFileChange($event)"
+        multiple accept=".jpeg, .jpg" required>
+    </div>
+
+    <div class="button-row">
+      <button class="save-button" mat-button [mat-dialog-close]="true" color="primary" type="submit"
+        [disabled]="editProductForm.invalid">Save</button>
+      <button class="cancel-button" mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+  </form>
+</div>

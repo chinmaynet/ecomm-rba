@@ -1,0 +1,9 @@
+.authPage{
+    margin: 10px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    margin-left: 10px;
+}

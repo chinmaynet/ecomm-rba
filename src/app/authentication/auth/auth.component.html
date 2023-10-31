@@ -1,0 +1,59 @@
+
+
+<!-- material -->
+<div class="authPage">
+    <mat-card class="content cardCSS">
+    <mat-card-content class="content">
+      <div *ngIf="!showLogIn">   
+        <mat-card-title><h1> Signup</h1></mat-card-title>
+         <!-- //reactive -->
+        <form [formGroup]="sellerSignUp" class="formElements" (ngSubmit)="Signup(sellerSignUp.value)">
+  
+          <mat-form-field class="form-group">
+            <input matInput type="text" name="name" formControlName="name" placeholder="Enter Name" required>
+            <mat-error *ngIf="name && name.invalid && name.touched">Enter Valid Name</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-group">
+            <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+            <mat-error *ngIf="email && email.invalid && email.touched">Email is required.</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="form-group">
+            <input matInput type="number" name="userPhone" formControlName="userPhone" placeholder="phone number" required>
+            <mat-error *ngIf="userPhone && userPhone.invalid && userPhone.touched">Phone Number is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-group">
+            <input matInput type="password" name="password" formControlName="password" placeholder="Password" required>
+            <mat-error *ngIf="password && password.invalid && password.touched">Password is required.</mat-error>
+          </mat-form-field>
+   
+          <button mat-raised-button type="submit" [disabled]="sellerSignUp.invalid">Signup</button>
+          <p class="auth-toggle-link">Already Have Account <a  (click)="openLogIn()">Click Here To LogIn</a></p>
+        </form>
+      </div>
+  
+      <div *ngIf="showLogIn">
+        <h1>Login</h1>
+        <form [formGroup]="sellerLogin" class="formElements" (ngSubmit)="Login(sellerLogin.value)">
+  
+          <mat-form-field class="form-group">
+            <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+            <mat-error *ngIf="emailLogin && emailLogin.invalid && emailLogin.touched">Email is required.</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-group">
+            <input matInput type="password" name="password" formControlName="password" placeholder="Password" required>
+            <mat-error *ngIf="passwordLogin && passwordLogin.invalid && passwordLogin.touched">Password is required.</mat-error>
+          </mat-form-field>
+      
+          <!-- <p class="error-p">{{authError}}</p> -->
+     
+          <button mat-raised-button type="submit">Login</button>
+          <p class="auth-toggle-link">Do'nt Have Account <a (click)="openLogIn()">Click Here To SignUp</a></p>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  </div>

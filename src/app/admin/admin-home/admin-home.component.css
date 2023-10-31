@@ -1,0 +1,35 @@
+.content{
+    margin: 10px;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+    /* max-height: 300px; */
+}
+.table{
+    /* max-height: 300px; */
+}
+
+.scrollable-table {
+    max-height: 450px;
+    overflow-y: auto;
+}
+.scrollable-table::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.prodTable{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cardFilter button {
+    margin: 5px;
+    float: right;
+}

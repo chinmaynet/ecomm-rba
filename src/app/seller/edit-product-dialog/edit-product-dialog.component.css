@@ -1,0 +1,33 @@
+.edit-form {
+    margin: 0%;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .save-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+    color: #000;
+  }
+  .description{
+ 
+    display: block;
+  }

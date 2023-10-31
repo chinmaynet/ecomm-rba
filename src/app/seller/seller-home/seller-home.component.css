@@ -1,0 +1,42 @@
+
+.cardContent {
+    padding: 10px;
+    width: 70%;
+    height: 100%;
+}
+
+.cardFilter button {
+    margin: 5px;
+    float: right;
+}
+.scrollable-table {
+    max-height: 450px;
+    overflow-y: auto;
+}
+.scrollable-table::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+.productImage{
+    /* height: 35px;
+    width:30px;
+    align-items: center; */
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width:105px;
+    line-height: 105px; /* Adjust to your desired row height */
+}
+
+.prodTable{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

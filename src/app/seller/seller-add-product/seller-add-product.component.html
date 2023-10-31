@@ -1,0 +1,40 @@
+
+
+<div class="authPage">
+  <mat-card>
+
+    <mat-card-content>
+      <mat-card-title>Add New Product</mat-card-title>
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="formElements mat-form">
+        <mat-form-field class="form-field">
+          <input matInput type="text" id="name" formControlName="name" placeholder="Name" required>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field">
+          <input matInput type="number" id="price" formControlName="price" placeholder="Price" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input matInput type="text" id="color" formControlName="color" placeholder="Color" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input matInput type="text" id="category" formControlName="catagory" placeholder="Category" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <textarea matInput type="text" id="description" formControlName="description" placeholder="Description"
+            required></textarea>
+        </mat-form-field>
+
+        <div class="form-group">
+          <mat-label>Image Files (JPEG/JPG)</mat-label>
+          <input type="file" formControlName="ImageFiles" id="ImageFiles" (change)="onFileChange($event)" accept=".jpeg, .jpg" multiple>
+          <img matInput [src]="imageURL" style="width: 250px;height: 200px;">
+        </div>        
+
+        <button mat-raised-button type="submit">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

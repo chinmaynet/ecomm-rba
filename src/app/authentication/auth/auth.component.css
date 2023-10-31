@@ -1,0 +1,17 @@
+
+.auth-toggle-link {
+    margin-top: 20px;
+}
+.auth-toggle-link a{
+   
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.form-group{
+    margin-right: 10px;   
+    width: 500px; 
+}
+.cardCSS{
+    /* width: 500px; */
+}

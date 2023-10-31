@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size:medium;
+}
+.common-form{
+    text-align: center  ;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 300px;
+}
+.form-input{
+height: 35px;
+padding-left:10px;
+margin-bottom: 20px;
+border: 1px solid blueviolet;
+}
+.form-button{
+    height: 35px;
+    border: 1px solid blueviolet;
+    cursor: pointer;
+}
+html, body { height: 100%; }
+
+span{
+    margin-top: 0px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+ */
+ html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.error-p {
+    color: red;
+}
+
+.authPage{
+    /* margin: 20px; */
+    /* width: auto; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.formElements mat-form-field{
+    display: block;
+}
