@@ -1,5 +1,8 @@
 .authPage{
     margin: 10px;
+    margin: auto;
+    align-items: center;
+    margin-top: 10%;
 }
 .buttons{
     display: flex;

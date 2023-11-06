@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Edit Product</h1>
 
-<div mat-dialog-content>
+<div mat-dialog-content class="scrollable-table">
   <form #editProductForm="ngForm" class="edit-form" (ngSubmit)="save()">
     <div class="form-row">
-      
+
       <mat-form-field class="form-field">
         <mat-label>Product Name</mat-label>
         <input matInput placeholder="Name" name="name" [(ngModel)]="editingProduct.name" required>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-row">
-      
+
       <mat-form-field class="form-field">
         <mat-label>Product Color</mat-label>
         <input matInput placeholder="Color" name="color" [(ngModel)]="editingProduct.color" required>
@@ -28,15 +28,25 @@
       </mat-form-field>
     </div>
     <div class="form-row">
-    
+
       <mat-form-field>
         <mat-label>Product Description</mat-label>
-        <textarea class="description" matInput placeholder="Description" name="description" [(ngModel)]="editingProduct.description"
-          required></textarea>
-        </mat-form-field>
-     
+        <textarea class="description" matInput placeholder="Description" name="description"
+          [(ngModel)]="editingProduct.description" required></textarea>
+      </mat-form-field>
+
     </div>
-    <img [src]="imageURL" style="width: 150px;height: 150px;">
+    <div>
+      <!-- <div class="slickDiv">
+        <mat-label>Product Images</mat-label>
+        <ngx-slick-carousel [config]="carouselConfig">
+          <div ngxSlickItem *ngFor="let image of editingProduct.productImages">
+            <img [src]="image" alt="Product Image" width="190" height="120">
+          </div>
+        </ngx-slick-carousel>
+      </div> -->
+      <img [src]="imageURL" style="width: 150px;height: 150px;">
+    </div>
     <div class="form-row">
       <mat-label>Image Files (JPEG/JPG)</mat-label>
       <input type="file" name="ImageFiles" [(ngModel)]="editingProduct.ImageFiles" (change)="onFileChange($event)"

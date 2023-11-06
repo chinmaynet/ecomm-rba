@@ -1,0 +1,40 @@
+.content{
+margin: 20px;
+text-align: center;
+
+}.tile{
+    
+    border: 2px solid grey; 
+}.div1{
+    float: left;
+    display: flex;
+    justify-content: space-around;
+  
+}.imgDiv{
+    margin-right: 20px;
+}.carousell {
+    float: left;
+    margin-right: 20px;
+}.data {
+    float: right;
+}
+.productFooter a{
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.summery{
+    margin-top: 0%;
+    height: 99%;
+    width: 90%;
+    /* align-items: center; */
+    /* border: 3px solid red; */
+    text-decoration: none;
+}
+
+.summery ul{
+    float: left;
+    /* display: list-item; */
+
+}

@@ -28,11 +28,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 @NgModule({
   declarations: [SellerAuthComponent, SellerHomeComponent, SellerAddProductComponent, DeleteDialogComponent, EditProductDialogComponent],
   imports: [MatTooltipModule, MatDialogModule, MatListModule, MatSnackBarModule, MatPaginatorModule, MatTableModule, MatGridListModule, MatSortModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatSidenavModule, MatAutocompleteModule, MatBadgeModule, MatButtonToggleModule, MatRadioModule, MatCheckboxModule, MatIconModule
     ,ReactiveFormsModule,FormsModule,CommonModule, MatCardModule, MatFormFieldModule, ReactiveFormsModule,
-    SellerRoutingModule ,
+    SellerRoutingModule ,SlickCarouselModule
   ]
 })
 export class SellerModule { }

@@ -31,3 +31,27 @@
  
     display: block;
   }
+
+  .scrollable-table {
+    max-height: 300px; 
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 10px;
+    }
+    
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: #555;
+    }
+  }
+  
+  .slickDiv{
+    width: 200px;display: flex;
+    justify-content: center;   align-items: center;
+    margin: auto;
+    float: rigth;
+  }
+

@@ -93,7 +93,15 @@ import { Product } from 'src/app/data-type';
 
     this.editProductForm.get('ImageFiles')!.setValue(files);
   }
-
+  carouselConfig = {
+    slidesToShow: 1,          
+    slidesToScroll: 1,
+    arrows: true,           
+    dots: true,
+    autoplay: false,         
+    autoplaySpeed: 1000,    
+    infinite: true,          
+  };
   save() {
   
     if (this.editProductForm.valid) {

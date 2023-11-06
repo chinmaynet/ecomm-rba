@@ -58,7 +58,7 @@
 }
 
 .example-sidenav {
-  width: 250px;
+  width: 220px;
 }
 
 .content {
@@ -72,7 +72,8 @@
 }
 
 .fixed-button-container button {
-  color: black;
+  color:white;
+  background-color: grey;
   border: none;
   padding: 10px;
   font-size: 18px;
@@ -93,7 +94,9 @@ nav a:hover {
   color: white;
   background-color: #42545C;
 }
-
+.listItems  {
+  
+}
 nav a.active {
   background-color: black;
 }
@@ -103,21 +106,46 @@ nav a.active {
 }
 
 .searchBar {
-  align-items: center;
-  text-align: center;
+  margin-left: 150px;
+  /* margin: auto; */
+  margin-top: 10px;
+  padding: auto;
+  position: relative;
+  /* align-items: center;
+  text-align: center; */
 }
 
+.e-comm-logo{
+  height: 100px;
+  width:210px;
+}
 .suggestedResult{
-  /* position: absolute;
+  position: absolute;
   display: list-item;
-  top: 40px;
-  z-index: 10; */
-  
+  z-index: 1; 
+  left: 35%;
+  min-width: 270px;
+  top: 75%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(238, 236, 236);
 }
 .suggestedResult mat-list-item{
   cursor: pointer;
 }
-
 a{
   cursor: pointer;
 }
+.footer{
+  padding: 10px;
+  text-align: center;
+  position:relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+   margin-top: auto;  
+}
+.footer a{
+  margin-left: 5px;
+}
+

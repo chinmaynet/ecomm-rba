@@ -1,0 +1,44 @@
+<div class="content" *ngIf="detailProduct">
+    <mat-card class="card">
+        <mat-grid-list cols="6" rowHeight="400">
+            <mat-grid-tile colspan="3">
+                <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
+                    <div ngxSlickItem *ngFor="let image of detailProduct.productImages">
+                        <img [src]="image.imagePath" alt="Product Image" width="300" height="250">
+                    </div>
+                </ngx-slick-carousel>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+                <div>
+                    <mat-card-header>
+
+                        <mat-card-title>{{detailProduct.name}}</mat-card-title>
+                        <mat-card-subtitle>{{detailProduct.catagory}}</mat-card-subtitle>
+
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Price: {{detailProduct.price | currency}}</p>
+                        <br>
+                        <p>Description: {{detailProduct.description}}</p>
+                    </mat-card-content>
+                    <br>
+                    <mat-card-actions class="actn">
+                        <p>Quantity</p>
+                        <div class="quantity">
+                            <button mat-button (click)="handleQuantity('plus')">+</button>
+                            <input matInput class="inputBar" type="number" value="{{productQuantity}}"
+                                placeholder="Quantity" />
+                            <button mat-button (click)="handleQuantity('min')">-</button>
+                        </div>
+
+                        <div class="buttons">
+                        <button *ngIf="!removeCart" (click)="AddToCart()" mat-button>Add To Cart</button>
+                        <button *ngIf="removeCart" (click)="RemoveFromCart(detailProduct.id)" mat-button>Remove From
+                            Cart</button>
+                        <button mat-button>Buy Now</button></div>
+                    </mat-card-actions>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
+</div>

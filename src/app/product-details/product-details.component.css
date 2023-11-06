@@ -1,0 +1,38 @@
+.content{
+    margin: 20px;
+}
+.card{
+    padding: 20px;
+    width: 55%;
+    margin: auto;
+}
+
+.carousel{   
+    height:300px;
+    width: 350px;
+}
+.Quantitiy{
+    display: flex;
+}
+
+.actn{
+    display: block;
+    margin: 0px;
+    padding: 20px;
+}
+
+.inputBar{
+    width: 20px;
+    border: none;
+    height: 30px;
+}
+.quantity{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttons{
+    margin-top: 20px;
+    width:200px;
+    display: flex;
+}

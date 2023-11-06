@@ -5,6 +5,7 @@ import { ProductService } from '../home-services/product.service';
 import { Product } from '../data-type';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,6 +14,7 @@ import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component'
 export class HeaderComponent implements OnInit {
 
   menuType: string = "default";
+  cartItems = 0;
   constructor(public dialog: MatDialog, private route: Router, private product: ProductService) { }
 
   searchProducts: undefined | Product[];
@@ -67,15 +69,33 @@ export class HeaderComponent implements OnInit {
         else if (localStorage.getItem('user') && val.url.includes('user')) {
           this.menuType = "user";
           if (localStorage.getItem('user')) {
-            let userStore = localStorage.getItem('user');
+            let userStore = localStorage.getItem('user');    
             let userData = userStore && JSON.parse(userStore);
-            this.userName = userData.userName;
+            this.userName = userData.userName;            
+            this.product.getCartList(userData.id).subscribe((cartItems: any) => {
+              this.product.cartData.emit(cartItems);
+            });
+            // this.product.cartData.subscribe();
           }
         }
         else {
           this.menuType = "default";
+          if (localStorage.getItem('user')) {
+            let userStore = localStorage.getItem('user');    
+            let userData = userStore && JSON.parse(userStore); 
+            this.product.getCartList(userData.id).subscribe((cartItems: any) => {
+              this.product.cartData.emit(cartItems);
+            });                  
+          }
         }
       }
+    });
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+      this.cartItems = JSON.parse(cartData).length
+    }
+    this.product.cartData.subscribe((items)=>{
+      this.cartItems=items.length;
     })
   }
   redirectToSellerAuth() {
@@ -141,9 +161,14 @@ export class HeaderComponent implements OnInit {
       this.route.navigate(['user-auth/auth'], { queryParams: { module: 'admin' } });
     }
   }
+  redirectToDetails(id:string){
+    this.route.navigate(['/details/'+id]);
+    
+  }
   logOut() {
     localStorage.removeItem('user');
-    this.route.navigate(['/'])
+    this.route.navigate(['/']);
+    this.product.cartData.emit([]);
   }
   showResults: boolean = false;
 
@@ -168,7 +193,15 @@ export class HeaderComponent implements OnInit {
     }
   }
   submitSearch(val:string){
-    console.warn("data is ",val);
+    // console.warn("data is ",val);
     this.route.navigate([`/search/${val}`]);
+  }
+  redirectToCart(){
+    if(localStorage.getItem('user')){
+      this.route.navigate(["/cart-page"]);
+    }
+    else{
+      this.route.navigate(["user-auth/auth"])
+    }
   }
 }

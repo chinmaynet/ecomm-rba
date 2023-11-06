@@ -33,3 +33,7 @@
     margin: 5px;
     float: right;
 }
+
+.chart-container{
+    height: 300px;
+}

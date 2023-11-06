@@ -1,0 +1,13 @@
+.content{
+    margin: 20px;
+
+}
+
+.canvas{
+ cursor:pointer;
+}
+
+.chart-container{
+    height: 500px;
+    align-items: center;
+}

@@ -1,24 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../data-type';
 import { ProductService } from '../home-services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent  implements OnInit{
   searchProducts:Product[] | null = null;
-  constructor(private product:ProductService){}
-  ngOnInit(): void {
-    // this.product.searchProducts().subscribe((data)=>{
-
-    //   this.searchProducts=data;
-    // });
+  constructor(private product:ProductService, private activatedRoute:ActivatedRoute){}
+  searchResult:Product[]|undefined=[];
+  ngOnInit(): void {    
+    let query= this.activatedRoute.snapshot.paramMap.get('query');
+    console.warn("query is ",query);
+    
+    query && this.product.searchProducts2(query).subscribe((result)=>{
+      this.searchProducts=result;
+    })
   }
-  getFullImagePath(relativePath: string): string {
-    const baseUrl = 'https://localhost:44376/';
   
-    return baseUrl + relativePath;
-  }
+  carouselConfig = {
+    slidesToShow: 1,          
+    slidesToScroll: 1,
+    arrows: true,           
+    dots: false,
+    autoplay: true,         
+    autoplaySpeed: 10000,    
+    infinite: true,          
+  };
 }

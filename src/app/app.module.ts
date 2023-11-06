@@ -32,6 +32,15 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import { SearchComponent } from './search/search.component';
 import { TestComponent } from './test/test.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgChartsModule } from 'ng2-charts';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+// import { Canvas } from 'canvas';
+// import { CanvasFontSpec } from 'chart.js';
+
+// import { ChartsModule } from 'ng2-charts';
+
 // import { AddSellerComponent } from './add-seller/add-seller.component';
 
 // import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
@@ -43,10 +52,12 @@ import { TestComponent } from './test/test.component';
     LogoutDialogComponent,
     SearchComponent,
     TestComponent,
+    ProductDetailsComponent,
+    CartPageComponent,
     // AddSellerComponent,
     // AdminHomeComponent,
   ],
-  imports: [    SlickCarouselModule,
+  imports: [    MatToolbarModule,SlickCarouselModule,NgChartsModule,
     BrowserModule,MatTooltipModule,MatDialogModule, MatListModule,MatSnackBarModule,FormsModule, MatPaginatorModule, MatTableModule, MatGridListModule, MatSortModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatSidenavModule, MatAutocompleteModule, MatBadgeModule, MatButtonToggleModule, MatRadioModule, MatCheckboxModule, MatIconModule,
     AppRoutingModule, ReactiveFormsModule, HttpClientModule,BrowserAnimationsModule,
   ],

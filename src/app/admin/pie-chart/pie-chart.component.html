@@ -1,0 +1,17 @@
+<div class="content">
+    <div>
+        <button mat-raised-button (click)="togglePieChart()">back</button>
+    </div>
+
+    <div class="chart-container">        
+        <canvas  id="RoleChart" (click)="onRoleSelected('Admin')">Admin</canvas>
+        <canvas id="RoleChart"  (click)="onRoleSelected('Seller')">Seller</canvas>
+        <canvas id="RoleChart"   (click)="onRoleSelected('User')">User</canvas>
+      </div>      
+    <!-- <div class="chart-container">
+        <canvas id="RoleChart"></canvas>
+        <div (click)="onRoleSelected('Admin')"></div>
+        <div (click)="onRoleSelected('Seller')"></div>
+        <div (click)="onRoleSelected('User')"></div>
+    </div> -->
+</div>

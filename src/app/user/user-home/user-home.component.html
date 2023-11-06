@@ -1,12 +1,12 @@
 <div class="content">
-    <mat-card >
+    <mat-card  class="card">
         <div class="prodTable">
             <mat-card-title><h1>Orders</h1></mat-card-title>
         </div>
         
         <mat-card-content>
             <div class="mat-elevation-z8">
-                <mat-table [dataSource]="dataSource" matSort>
+                <mat-table class="table" [dataSource]="dataSource" matSort>
                     
                     <ng-container matColumnDef="orderNumber">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Order Number </mat-header-cell>

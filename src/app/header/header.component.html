@@ -1,85 +1,123 @@
 <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <div [ngSwitch]="menuType">
-            <div *ngSwitchCase="'default'">
-                <nav>
-                    <a routerLink="">Home</a>
-                </nav>
-                <nav>
-                    <a routerLink="/user-auth/auth">Login</a>
-                </nav>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <div [ngSwitch]="menuType">
+                <div *ngSwitchCase="'default'">
+                    <!-- <nav>  <h1 class="example-app-name">E-commerce Project</h1></nav> -->
+                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                  
+                    <nav>
+                        <a routerLink="">Home</a>
+                    </nav>
+                    <nav>
+                        <a (click)="redirectToCart()">Cart ({{cartItems}})</a>
+                    </nav>
+                    <nav>
+                        <a routerLink="/user-auth/auth">Login</a>
+                    </nav>
+                </div>
+                <div *ngSwitchCase="'user'">
+                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                    <nav>
+                        <a routerLink="">Home</a>
+                    </nav>
+                    <nav>
+                        <a routerLink="/user/user-home">User Home</a>
+                    </nav>
+                    <nav>
+                        <a routerLink="/cart-page">Cart ({{cartItems}})</a>
+                    </nav>
+                    <nav>
+                        <a (click)="openDeleteDialog()">Logout</a>
+                    </nav>
+                    <nav>
+                        <a>{{userName | titlecase}}</a>
+                    </nav>
+                </div>
+                <div *ngSwitchCase="'seller'">
+                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                    <nav>
+                        <a routerLink="">Home</a>
+                    </nav>
+                    <nav>
+                        <a routerLink="seller/seller-home">Product List</a>
+                    </nav>
+                    <nav>
+                        <a (click)="openDeleteDialog()">Logout</a>
+                    </nav>
+                    <nav>
+                        <a>{{userName | titlecase}} (SELLER)</a>
+                    </nav>
+                </div>
+                <div *ngSwitchCase="'admin'">
+                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                    <nav>
+                        <a routerLink="">Home</a>
+                    </nav>
+                    <nav>
+                        <a routerLink="admin/admin-home">Admin Home</a>
+                    </nav>
+                    <nav>
+                        <a (click)="openDeleteDialog()">Logout</a>
+                    </nav>
+                    <nav>
+                        <a>{{userName | titlecase}} (ADMIN)</a>
+                    </nav>
+                </div>
             </div>
-            <div *ngSwitchCase="'user'">
-                <nav>
-                    <a routerLink="">Home</a>
-                </nav>
-                <nav>
-                    <a routerLink="/user/user-home">User Home</a>
-                </nav>
-                <nav>
-                    <a>Cart</a>
-                </nav>
-                <nav>
-                    <a (click)="openDeleteDialog()">Logout</a>
-                </nav>
-                <nav>
-                    <a>{{userName | titlecase}}</a>
-                </nav>
-            </div>
-            <div *ngSwitchCase="'seller'">
-                <nav>
-                    <a routerLink="">Home</a>
-                </nav>
-                <nav>
-                    <a routerLink="seller/seller-home">Product List</a>
-                </nav>
-                <nav>
-                    <a (click)="openDeleteDialog()">Logout</a>
-                </nav>
-                <nav>
-                    <a>{{userName | titlecase}} (SELLER)</a>
-                </nav>
-            </div>
-            <div *ngSwitchCase="'admin'">
-                <nav>
-                    <a routerLink="">Home</a>
-                </nav>
-                <nav>
-                    <a routerLink="admin/admin-home">Admin Home</a>
-                </nav>    
-                <nav>
-                    <a (click)="openDeleteDialog()">Logout</a>
-                </nav>
-                <nav>
-                    <a>{{userName | titlecase}} (ADMIN)</a>
-                </nav>
-            </div>
-        </div>
-    </mat-drawer>
+        </mat-drawer>
+        <mat-toolbar class="example-toolbar">
 
-    <div class=" mainFrame">
-
-        <div *ngIf="menuType==='default'" class="searchBar">             
-            <mat-form-field class="searchBar" appearance="fill">
-                <input #searchInput (keyup)="serchProduct($event)" matInput type="text" placeholder="Search for products"  (focus)="showList()" (blur)="hideList()">              
-                <mat-list *ngIf="showResults" class="suggestedResult"  role="list">
-                    <mat-list-item  let *ngFor="let item of searchProducts" role="listitem">{{item.name}}</mat-list-item>                  
-                  </mat-list>
-                <button (click)="submitSearch(searchInput.value)" mat-button matSuffix>
-                    <mat-icon>search</mat-icon> 
-                </button>
-            </mat-form-field>
-        </div>
-
-        <div class="fixed-button-container">
-            <button type="button" mat-button (click)="toggleDrawer()">
-                <ng-container *ngIf="isDrawerOpen; else drawerClosed">
-                    << </ng-container>
-                        <ng-template #drawerClosed>
-                            >>
-                        </ng-template>
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
             </button>
+            <h1 class="example-app-name">E-commerce Project</h1>
+
+            <div *ngIf="menuType==='default'" class="searchBar">
+                <mat-form-field class="searchBar" appearance="fill">
+                    <input class="inputbox" #searchInput matInput type="text" placeholder="Search for products"
+                        (keyup)="serchProduct($event)" (focus)="showList()" (blur)="hideList()">
+
+                    <button (click)="submitSearch(searchInput.value)" mat-button matSuffix>
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-list *ngIf="showResults" class="suggestedResult" role="list">
+                    <a>
+
+                        <mat-list-item class="listItems" *ngFor="let item of searchProducts"
+                            (mousedown)="redirectToDetails(item.id)" role="listitem">{{item.name}}</mat-list-item>
+                    </a>
+                </mat-list>
+            </div>
+
+        </mat-toolbar>
+        <div class=" mainFrame">
+
+
+
+            <!-- <div class="fixed-button-container">
+                <button type="button" mat-button (click)="toggleDrawer()">
+                    <ng-container *ngIf="isDrawerOpen; else drawerClosed">
+                        << </ng-container>
+                            <ng-template #drawerClosed>
+                                >>
+                            </ng-template>
+                </button>
+            </div> -->
         </div>
-    </div>
-    <router-outlet></router-outlet>
-</mat-drawer-container>
+        <router-outlet></router-outlet>
+        <footer class="footer">
+            <div class="footer">
+                <div>
+                    <a>Become a Seller</a>
+                    <a>Polices, Terms and Conditions</a>
+                    <a>Help Center</a>
+                    <a>News</a>
+                    <a>FaceBook</a>
+                    <a>Instagram</a>
+                    <a>YouTube</a>
+                </div>
+                <div> Copyright 2023 E-commerce project</div>
+            </div>
+        </footer>
+    </mat-drawer-container>

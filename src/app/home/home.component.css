@@ -1,55 +1,95 @@
-
-.content{
-    margin: 20px;
+.content {
+  margin: 10px;
+  /* margin-bottom: 80px; */
 }
 
-.productGridImg{
-    height: 300px;
-    width:300px
-}
-.grid{
-    /* border: 2px solid #ccc; */
-    margin-top: 30px;
-}   
-.tile{
-    border: 2px solid #ccc; }
-.product{
-    /* padding: 10px; */
+.productGridImg {
+  height: 300px;
+  width: 300px
 }
 
-.productDetails{
-    /* padding: 10px; */
+.grid {
+  padding: 20px;
+  /* text-align: center; */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  margin: 10px;
+  /* border: 2px solid #ccc; */
+  /* margin-top: 30px; */
 }
-.productFooter a{
-    margin-right: 10px;
-    text-decoration: none;
-    font-weight: bold;
+
+.tile {
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.product {
+  /* padding: 10px; */
+}
+
+.productDetails {
+  /* padding: 10px; */
+}
+.productFooter a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.custom-arrow {
+  display: flex;
+  color: black; 
+  font-size: 24px; 
+  cursor: pointer;
+}
+.slick-prev:before {
+
+  color: black;
 }
 .slick-carousel {
-    width: 100%;
-  }
-  
-  .product-slide {
-    margin: 0 10px;
-  }
-  
-  .slick-prev,
-  .slick-next {
-    background: #007acc;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  .carousel {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .carousel-item {
-    text-align: center;
-    padding: 10px;
-  }
+  width: 100%;
+}
+.slick-prev,.slick-next {
+  color: black;
+}
+.product-slide {
+  /* margin: 0 10px; */
+}
+
+.slick-prev,
+.slick-next {
+  background: #007acc;
+  color: white;
+  border: none;
+  /* padding: 5px 10px; */
+  cursor: pointer;
+}
+
+.carousel {
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.carousel img {
+  width: 100%;
+
+}
+
+.productFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.carousel-item {
+  text-align: center;
+  padding: 10px;
+}
+
+
 /* 
   .bordr{
     border: 2px solid blue;

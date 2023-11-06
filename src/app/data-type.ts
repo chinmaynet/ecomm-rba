@@ -20,13 +20,28 @@ export interface Product {
     description: string,
     ImageFiles:File[],
     productImages:any[],       
+    quantity:undefined | number,
+    productId:undefined|string,
 }
-
+export interface Cart{
+    id: string | undefined,
+    name: string,
+    price: number,
+    color: string,
+    catagory: string,
+    description: string,
+    ImageFiles:File[],
+    productImages:any[],       
+    quantity:undefined | number,
+    userId:string,
+    productId:string
+}
 export interface UserWithRoles {
     Id: string,
     UserName: string,
     UserEmail: string,
     UserPassword: string,
     UserPhone: string,
-    Role: string,
+    role: string,
+    activityStatus:string,
 }

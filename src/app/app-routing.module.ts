@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './authentication/guards/auth.guard';
 import { SearchComponent } from './search/search.component';
 import { TestComponent } from './test/test.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 // import { SellerAddProductComponent } from './seller/seller-add-product/seller-add-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'test', component: TestComponent },
+  { path: 'cart-page', component: CartPageComponent },
   { path: 'search/:query', component: SearchComponent },
+  { path: 'details/:productId', component: ProductDetailsComponent },
   { path: 'seller', loadChildren: () => import('./seller/seller.module').then((m) => m.SellerModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule) },
   {path:'user', loadChildren: () => import('./user/user.module').then((m)=> m.UserModule)},

@@ -92,7 +92,12 @@
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
                         <mat-cell *matCellDef="let element">
                             <!-- <img class="productImage" mat-cell-avatar [src]="element.imageURL" alt="Product Image"> -->
-                            <img class="productImage" mat-cell-avatar [src]="getFullImagePath(element.productImages[0].imagePath)" alt="Product Image">
+                            <!-- <img class="productImage" mat-cell-avatar [src]="getFullImagePath(element.productImages[0].imagePath)" alt="Product Image"> -->
+                            <ngx-slick-carousel [config]="carouselConfig">
+                                <div ngxSlickItem *ngFor="let image of element.productImages">
+                                    <img [src]="image" alt="Product Image" width="120" height="100">
+                                </div>
+                            </ngx-slick-carousel>
                         </mat-cell>
                     </ng-container>
                     <!-- <ng-container matColumnDef="imageURL">

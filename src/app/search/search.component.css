@@ -4,10 +4,42 @@
     border: 2px solid grey;
 }
 .div1{
+    float: left;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+  
 }
 .tile{
-    border-top: 2px solid grey;
+    /* border-top: 2px solid grey; */
     border-bottom: 2px solid grey;
+    /* border-right: 2px solid grey;  */
+}
+
+.content{
+    margin: 20px;
+}
+
+.grid{
+    border: 2px solid grey;
+    
+    padding: 20px;
+}
+.imgDiv{
+    margin-right: 20px;
+}
+.productFooter a{
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.carousel{
+    height: 250px;
+    width: 300px;
+}
+.carousell {
+    float: left;
+    margin-right: 20px;
+}
+.data {
+    float: right;
 }

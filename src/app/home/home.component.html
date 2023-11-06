@@ -1,76 +1,35 @@
 <div class="content">
-
-    <!-- <h2>Popular Products</h2>
-    <table mat-table [dataSource]="popularProducts" class="mat-elevation-z8">
-        <ng-container matColumnDef="productName">
-            <th mat-header-cell *matHeaderCellDef> Product Name </th>
-            <td mat-cell *matCellDef="let product"> {{ product.name }} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="productPrice">
-            <th mat-header-cell *matHeaderCellDef> Product Price </th>
-            <td mat-cell *matCellDef="let product"> {{ product.price }} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="productDescription">
-            <th mat-header-cell *matHeaderCellDef> Product Description </th>
-            <td mat-cell *matCellDef="let product"> {{ product.description }} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="productImage">
-            <th mat-header-cell *matHeaderCellDef> Product Image </th>
-            <td mat-cell *matCellDef="let product">
-                <img [src]="product.imageURL" alt="Product Image" width="100" height="100">
-            </td>
-        </ng-container>
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table> -->
-
     <div class="grid">
         <h2>Trendy Products</h2>
-        <ngx-slick-carousel class="slick-carousel" [config]="carouselConfig">
-            <mat-grid-list cols="4" gutterSize="16px" [rowHeight]="450">
 
-                <mat-grid-tile class="tile" *ngFor="let product of trendyProducts">
-                    <div>
-                        <!-- <div>
-                      
-                        <img class="productGridImg" [src]="getFullImagePath(product.productImages[0].imagePath)" alt="Product Image">
-                    </div> -->
+        <mat-grid-list  cols="4" gutterSize="12px" [rowHeight]="400">
+            <mat-grid-tile *ngFor="let product of trendyProducts" class="tile">
 
-                        <div class="check-img">
-                            <div *ngFor="let image of product.productImages">
-                                <img [src]="getFullImagePath(image.imagePath)" alt="Product Image">
-                            </div>
-                        </div>
-
-
-                        <div class="productDetails">
+                <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig" (mouseover)="sliderPause(false)" (mouseout)="sliderPause(true)" [ngClass]="{'black-arrows': true}">
+                    <div ngxSlickItem *ngFor="let image of product.productImages">
+                        <img routerLink="/details/{{product.id}}" [src]="image" alt="Product Image" width="250" height="250">
+                        <div>
                             <div>
-                                <h4>Name: {{product.name}}</h4>
+                                <p routerLink="/details/{{product.id}}">Name: {{product.name}}</p>
                             </div>
                             <div>
-                                <h4>Price: {{product.price}}</h4>
+                                <p routerLink="/details/{{product.id}}">Color: {{product.color}}</p>
                             </div>
                             <div>
-                                <h4>Color:{{product.color}}</h4>
+                                <p routerLink="/details/{{product.id}}">Price: {{product.price}}</p>
                             </div>
-                        </div>
-                        <div class="productFooter">
-                            <a routerLink="">View Details</a>
-                            <a routerLink="">Add To Cart</a>
+                            <div class="productFooter">
+                                <a mat-button routerLink="/details/{{product.id}}">View Details</a>
+                                <!-- <a mat-button routerLink="">Add To Cart</a> -->
+                            </div>
                         </div>
                     </div>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </ngx-slick-carousel>
-    </div>
-</div>
-<!-- <div class="slick-carousel">
+                </ngx-slick-carousel>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <!-- <div class="slick-carousel">
     <div *ngFor="let product of trendyProducts" class="product-slide">
       <img [src]="getFullImagePath(product.productImages[0].imagePath)" alt="Product Image">
     </div>
-</div> -->
+    </div> -->
+</div>

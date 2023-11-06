@@ -16,20 +16,21 @@ export class SellerService {
   islogInError = new EventEmitter<boolean>(false);
 
   constructor(private snackBar: MatSnackBar, private router: Router, private http: HttpClient) { }
-  userSignup(data: SignUp) {
+  userSignup(data: SignUp)  : Observable<any> {
     data.id="00000000-0000-0000-0000-000000000000";
-    this.http.post('https://localhost:44376/api/E_Comm/signup', data,
+     return this.http.post('https://localhost:44376/api/E_Comm/signup', data,
       )
-      .subscribe((result:any) => {
-        if (result) {
-          this.isSellerLogin.next(true);
-          this.currentUser = result.role;
-          console.warn("signup role is ",this.currentUser);
-          localStorage.setItem('user', JSON.stringify(result))      
-          this.router.navigate([`${this.currentUser}/${this.currentUser}-home`]);           
-        }
-      });
-    return false;
+      // .subscribe((result:any) => {
+      //   if (result) {
+      //     this.isSellerLogin.next(true);
+      //     this.currentUser = result.role;
+      //     console.warn("signup role is ",this.currentUser);
+      //     localStorage.setItem('user', JSON.stringify(result))      
+      //     this.router.navigate([`${this.currentUser}/${this.currentUser}-home`]);           
+      //   }
+      // })
+      ;
+    // return false;
   }
   showLoginSuccessSnackbar(message: string) {
     this.snackBar.open(message, 'Close', {
@@ -37,26 +38,28 @@ export class SellerService {
     });
   }
   
-  userLogin(data: Login) {
+  userLogin(data: Login): Observable<any> {
     // console.warn(data);
-    this.http.post(`https://localhost:44376/api/E_Comm/login`, data,{ observe: 'response' }).subscribe(
-      (result: any) => {  
-        // console.warn("result is ", result);
-        if (result &&  result.body.role && result.status === 200) {
-          this.isSellerLogin.next(true);
-          this.currentUser = result.body.role;
-          console.log("current user is ",this.currentUser )
-          // console.warn( "currentUser is ",this.currentUser);
-          localStorage.setItem('user', JSON.stringify(result.body));       
-          this.router.navigate([`${this.currentUser}/${this.currentUser}-home`]);
-          // this.router.navigate(['/seller/seller-home']);
-          this.showLoginSuccessSnackbar('Login successful');
-        }
-      },
-      (error: any) => {            
-          this.islogInError.emit(true);
-      }
-    );
+    return this.http.post(`https://localhost:44376/api/E_Comm/login`, data,{ observe: 'response' })
+    // .subscribe(
+    //   (result: any) => {  
+    //     // console.warn("result is ", result);
+    //     if (result &&  result.body.role && result.status === 200) {
+    //       this.isSellerLogin.next(true);
+    //       this.currentUser = result.body.role;
+    //       console.log("current user is ",this.currentUser )
+    //       // console.warn( "currentUser is ",this.currentUser);
+    //       localStorage.setItem('user', JSON.stringify(result.body));       
+    //       this.router.navigate([`${this.currentUser}/${this.currentUser}-home`]);
+    //       // this.router.navigate(['/seller/seller-home']);
+    //       this.showLoginSuccessSnackbar('Login successful');
+    //     }
+    //   },
+    //   (error: any) => {            
+    //       this.islogInError.emit(true);
+    //   }
+    // )
+    ;
   }
 
   hasRole(requiredRole: string): boolean {

@@ -32,7 +32,8 @@ export class AddSellerComponent {
       UserEmail : data.UserEmail,
       UserPhone : data.UserPhone,
       UserPassword : '',
-      Role: 'seller',
+      role: 'seller',
+      activityStatus:'',
     }
     data= sendData;
     console.log(data);

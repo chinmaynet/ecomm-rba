@@ -45,7 +45,15 @@ export class SellerHomeComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
+  carouselConfig = {
+    slidesToShow: 1,          
+    slidesToScroll: 1,
+    arrows: false,           
+    dots: false,
+    autoplay: true,         
+    autoplaySpeed: 10000,    
+    infinite: true,          
+  };
   openEditProductDialog(product:Product):any{
     const dialogRef = this.dialog.open(EditProductDialogComponent, {
       width: '550px',

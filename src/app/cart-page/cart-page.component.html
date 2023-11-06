@@ -1,0 +1,90 @@
+<!-- <div class="content">
+
+    <mat-grid-list cols="5" rowHeight="300">
+        <div>
+            <mat-grid-tile colspan="2" rowspan="10">        
+                <div>
+                    <h3>Summery</h3>
+                </div>
+            </mat-grid-tile><br>
+        <mat-grid-tile colspan="3" rowspan="1" class="tile" *ngFor="let item of cartProducts">
+            <div class="div1">
+                <div class="imgDiv">
+                    <div class="carousell">
+                        <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
+                            <div ngxSlickItem *ngFor="let image of item.productImages">
+                                <img [src]="image" alt="Product Image" width="300" height="250">
+                            </div>                                                 
+                        </ngx-slick-carousel>
+                    </div>
+                    <div class="data">
+                        <div >
+                            <h2 routerLink="/details/{{item.id}}">Name: {{item.name}}</h2>
+                        </div>
+                        <div>
+                            <h4>Price: {{item.price}}</h4>
+                        </div>
+                        <div>
+                            <h4>Color: {{item.color}}</h4>
+                        </div>
+
+                        <div class="productFooter">
+                            <a routerLink="/details/{{item.id}}">View Details</a>
+                            <a routerLink="">Add To Cart</a>
+                        </div>
+                    </div>       
+                </div>
+                
+            </div>
+        </mat-grid-tile>
+    </div>
+        
+    </mat-grid-list>
+</div> -->
+<div class="content">
+    <mat-grid-list cols="5" rowHeight="300">
+        <mat-grid-tile colspan="2" rowspan="5">
+            <div class="summery">
+                <h2>Summary</h2>
+
+                <ul>
+                    <li><h3>Amount</h3></li>
+                    <li><h3>Tax</h3></li>
+                    <li><h3>Delivery</h3></li>
+                    <li><h3>Discount</h3></li>
+                </ul>
+
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" class="tile"  *ngFor="let item of cartProducts">
+            <div class="div1" *ngIf="cartProducts">
+                <div class="imgDiv">
+                    <div class="carousell">
+                        <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
+                            <div ngxSlickItem *ngFor="let image of item.productImages">
+                                <img [src]="image" alt="Product Image" width="300" height="250">
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                    <div class="data">
+                        <div>
+                            <h2 [routerLink]="'/details/' + item.id">Name: {{ item.name }}</h2>
+                        </div>
+                        <div>
+                            <h4>Price: {{ item.price }}</h4>
+                        </div>
+                        <div>
+                            <h4>Color: {{ item.color }}</h4>
+                        </div>
+                        <div class="productFooter">
+                            <a [routerLink]="'/details/' + item.id">View Details</a>
+                            <a [routerLink]="'/'">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+       
+
+    </mat-grid-list>
+</div>
