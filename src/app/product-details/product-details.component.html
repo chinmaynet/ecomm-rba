@@ -2,7 +2,7 @@
     <mat-card class="card">
         <mat-grid-list cols="6" rowHeight="400">
             <mat-grid-tile colspan="3">
-                <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
+                <ngx-slick-carousel  class="carousel" [config]="carouselConfig">
                     <div ngxSlickItem *ngFor="let image of detailProduct.productImages">
                         <img [src]="image.imagePath" alt="Product Image" width="300" height="250">
                     </div>
@@ -35,7 +35,7 @@
                         <button *ngIf="!removeCart" (click)="AddToCart()" mat-button>Add To Cart</button>
                         <button *ngIf="removeCart" (click)="RemoveFromCart(detailProduct.id)" mat-button>Remove From
                             Cart</button>
-                        <button mat-button>Buy Now</button></div>
+                        <button routerLink="/checkout" mat-button>Buy Now</button></div>
                     </mat-card-actions>
                 </div>
             </mat-grid-tile>

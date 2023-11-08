@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditProductDialogComponent } from '../edit-product-dialog/edit-product-dialog.component';
+
 @Component({
   selector: 'app-seller-home',
   templateUrl: './seller-home.component.html',
@@ -50,9 +51,17 @@ export class SellerHomeComponent implements OnInit, AfterViewInit {
     slidesToScroll: 1,
     arrows: false,           
     dots: false,
-    autoplay: true,         
+    autoplay: false,         
     autoplaySpeed: 10000,    
-    infinite: true,          
+    infinite: true,     
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },]       
   };
   openEditProductDialog(product:Product):any{
     const dialogRef = this.dialog.open(EditProductDialogComponent, {

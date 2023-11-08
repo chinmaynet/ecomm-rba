@@ -77,4 +77,22 @@ export class SellerService {
       this.router.navigate([`${userRole}/${userRole}-home`]);
     }
   }
+  
+userRole = new EventEmitter<string>();
+  sendRole(){
+    let userStore = localStorage.getItem('user');
+  let userData = userStore && JSON.parse(userStore);
+  this.userRole.emit(userData.role)
+  }
+
+///////////////
+  private userRoleSubject = new BehaviorSubject<string | null>(null);
+  userRole$ = this.userRoleSubject.asObservable();
+
+  sendRole2() {
+    let userStore = localStorage.getItem('user');
+    let userData = userStore && JSON.parse(userStore);
+
+    this.userRoleSubject.next(userData.role);
+  }
 }

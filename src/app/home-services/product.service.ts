@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Cart, Login, Product, SignUp } from '../data-type';
+import { Cart, Login, Order, Product, SignUp } from '../data-type';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -171,46 +171,74 @@ export class ProductService {
   }
 
   // getCartList(userId: number) {
-    // return this.http.get<Product[]>('https://localhost:44376/api/E_Comm/cart?userId=' + userId,{observe:'response'}).subscribe((result) => {
-    //   console.warn("getCartlist",result);
-    //   if (result && result.body) {
-    //     this.cartData.emit(result.body);
-    //   }
-    // });    
+  // return this.http.get<Product[]>('https://localhost:44376/api/E_Comm/cart?userId=' + userId,{observe:'response'}).subscribe((result) => {
+  //   console.warn("getCartlist",result);
+  //   if (result && result.body) {
+  //     this.cartData.emit(result.body);
+  //   }
+  // });    
   // }
   getCartList(userId: string): Observable<Cart[]> {
     const params = new HttpParams().set('userId', userId);
     console.log("cart List called");
     return this.http.get<Cart[]>(`https://localhost:44376/api/E_Comm/cart`, { params })
-    // .subscribe((result)=>{
-    //   if(result && result.body){
-    //     this.cartData.emit(result.body);
-    //   }
-    // })
-    ;
+      // .subscribe((result)=>{
+      //   if(result && result.body){
+      //     this.cartData.emit(result.body);
+      //   }
+      // })
+      ;
   }
 
-  getCartList2(userId :string){
+  getCartList2(userId: string) {
     return this.http.get<Product[]>(`https://localhost:44376/api/E_Comm/cartt?userId=${userId}`).pipe(
       map((products: Product[]) => {
         return products.map((product: Product) => {
 
-          const productImages = product.productImages.map((image: any) => {
-            return this.getFullImagePath(image.imagePath);
-          });
+          // const productImages = product.productImages.map((image: any) => {
+          //   return this.getFullImagePath(image.imagePath);
+          // });
+          const productImages = product.imagePaths.map((imagePath: string) => {
+            return this.getFullImagePath(imagePath);
+          }) ;
 
           return {
-            ...product,
+            ...product, //shallow copy 
             productImages: productImages,
           };
         });
       })
     );
   }
+
   // removeFromCartBE(cartId: string){
   //   return this.http.delete('https://localhost:44376/api/E_Comm/cart'+ cartId);
   // }
-  removeFromCartBE(productId: any, userId : string, color:string){
-    return this.http.delete(`https://localhost:44376/api/E_Comm/cart?userId=${userId}&productId=${productId}&color=${color}` );
+  removeFromCartBE(productId: any, userId: string, color: string) {
+    return this.http.delete(`https://localhost:44376/api/E_Comm/cart?userId=${userId}&productId=${productId}&color=${color}`);
+  }
+
+
+  orderNow(data:Order){
+    return this.http.post('https://localhost:44376/api/E_Comm/order',data);
+  }
+
+  orderList(){
+    let userStrore = localStorage.getItem('user');
+    let userData = userStrore && JSON.parse(userStrore);
+
+    return this.http.get<Order[]>('https://localhost:44376/api/E_Comm/order?userId='+userData.id);
+  }
+
+  deleteCartItems(id :string){//order is places so delete cart Items
+    return this.http.delete(`https://localhost:44376/api/E_Comm/cartt?userId=${id}`,{observe:'response'}).subscribe((result)=>{
+      if(result){
+        this.cartData.emit([]);
+      }
+    })
+  }
+
+  deleteOrder(orderId :string){
+    return this.http.delete(`https://localhost:44376/api/E_Comm/order?orderId=${orderId}`);
   }
 }

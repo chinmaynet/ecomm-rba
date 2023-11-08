@@ -22,6 +22,7 @@ export interface Product {
     productImages:any[],       
     quantity:undefined | number,
     productId:undefined|string,
+    imagePaths:any[],
 }
 export interface Cart{
     id: string | undefined,
@@ -34,7 +35,8 @@ export interface Cart{
     productImages:any[],       
     quantity:undefined | number,
     userId:string,
-    productId:string
+    productId:string,
+    // imagePaths:undefined|any[]
 }
 export interface UserWithRoles {
     Id: string,
@@ -44,4 +46,22 @@ export interface UserWithRoles {
     UserPhone: string,
     role: string,
     activityStatus:string,
+}
+export interface PriceSummery{
+    price:number,
+    discount:number,
+    // quantity:number,
+    tax:number,
+    deliveryCharge:number,
+    total:number
+}
+
+export interface Order{
+    id:number|undefined,
+    email:string,
+    name:string;
+    contact:string;
+    totalPrice:number,
+    userId:number,
+    address:string
 }

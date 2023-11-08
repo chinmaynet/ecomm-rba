@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Order, Product } from '../data-type';
 import { MatTableDataSource } from '@angular/material/table';
-import { Order, Product } from 'src/app/data-type';
-import { ProductService } from 'src/app/home-services/product.service';
+import { ProductService } from '../home-services/product.service';
 @Component({
-  selector: 'app-user-home',
-  templateUrl: './user-home.component.html',
-  styleUrls: ['./user-home.component.css']
+  selector: 'app-my-orders',
+  templateUrl: './my-orders.component.html',
+  styleUrls: ['./my-orders.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class MyOrdersComponent implements OnInit {
   displayedColumns: string[] = ['orderNumber', 'price', 'status', 'action'];
   orderList: MatTableDataSource<Order> = new MatTableDataSource<Order>();
-  constructor(private router: Router, private product: ProductService) { }
+  
+  constructor( private product : ProductService,private router: Router) { }
+
   ngOnInit(): void {
     this.getAllOrders();
    }
@@ -21,9 +23,10 @@ export class UserHomeComponent implements OnInit {
       this.getAllOrders();
     })
   }
+
   getAllOrders() {
     this.product.orderList().subscribe((result) => {
       this.orderList.data=result;
     })
   }
-} 
+}

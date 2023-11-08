@@ -43,7 +43,7 @@
         <ng-container matColumnDef="ActivityStatus">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Status </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-slide-toggle [checked]="element.activityStatus === 'active'" (change)="toggleActivityStatus(element)">
+            <mat-slide-toggle  [color]="color" [checked]="element.activityStatus === 'active'" (change)="toggleActivityStatus(element)">
               {{ element.activityStatus }}
             </mat-slide-toggle>
           </mat-cell>

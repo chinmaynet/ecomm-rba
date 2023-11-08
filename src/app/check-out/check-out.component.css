@@ -1,0 +1,19 @@
+.content{
+    margin: 20px;
+}
+.form-group{
+    margin-right: 10px;   
+    width: 500px; 
+}
+
+.shippingForm{
+    text-align: center;
+}
+
+.shippingForm button {
+    float: left;
+}
+.details {
+
+    
+}

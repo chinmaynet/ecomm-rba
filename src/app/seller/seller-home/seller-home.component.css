@@ -10,13 +10,56 @@
     float: right;
 }
 .scrollable-table {
-    max-height: 450px;
+    max-height: 380px;
     overflow-y: auto;
 }
 .scrollable-table::-webkit-scrollbar {
     width: 12px;
 }
+.mat-card {
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  .mat-cell {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .mat-column-description {
+    flex: 2; 
+  }
+  
+  .slick-carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .slick-slide {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .slick-prev, .slick-next {
+    top: 40%; 
+  }
+  
 
+  @media (max-width: 600px) {
+    .mat-header-cell {
+      font-size: 12px; 
+    }
+    .mat-cell {
+      font-size: 12px;
+    }
+    .mat-paginator {
+      font-size: 12px;
+    }
+  }
+  
 
 .scrollable-table::-webkit-scrollbar-thumb {
     background: #888;
@@ -31,7 +74,7 @@
     align-items: center;
     /* justify-content: center; */
     width:105px;
-    line-height: 105px; /* Adjust to your desired row height */
+    line-height: 105px; 
 }
 
 .prodTable{

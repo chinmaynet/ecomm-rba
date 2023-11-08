@@ -2,6 +2,7 @@ import { Component, OnInit,ViewChild  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductService } from '../home-services/product.service';
 import { Product } from '../data-type';
+import { SellerService } from '../seller/seller-services/seller.service';
 
 @Component({
   selector: 'app-home',
@@ -17,15 +18,19 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['productName', 'productPrice', 'productDescription', 'productImage'];
  
-  constructor(private product:ProductService){}
+  constructor(private product:ProductService, private user:SellerService){}
   ngOnInit(): void {
     // this.product.popularProduct2().subscribe((data)=>{
 
     //   this.popularProducts.data=data;
     // }); 
+
     this.product.trendyProducts2().subscribe((data)=>{
+   
       this.trendyProducts=data;
+   
     });
+    this.user.sendRole2();
   }
   sliderPaused = true;
   carouselConfig = {
@@ -40,8 +45,8 @@ export class HomeComponent implements OnInit {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,          
         },
       },]        
   };

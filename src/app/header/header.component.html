@@ -10,6 +10,10 @@
                     </nav>
                     <nav>
                         <a (click)="redirectToCart()">Cart ({{cartItems}})</a>
+                        <!-- <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>  -->
+                    </nav>
+                    <nav *ngIf="sellerOrAdmin">
+                        <a  routerLink="/my-orders">My Orders</a>
                     </nav>
                     <nav>
                         <a routerLink="/user-auth/auth">Login</a>
@@ -24,8 +28,9 @@
                         <a routerLink="/user/user-home">User Home</a>
                     </nav>
                     <nav>
-                        <a routerLink="/cart-page">Cart ({{cartItems}})</a>
+                        <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>
                     </nav>
+                    
                     <nav>
                         <a (click)="openDeleteDialog()">Logout</a>
                     </nav>
@@ -72,7 +77,7 @@
             </button>
             <h1 class="example-app-name">E-commerce Project</h1>
 
-            <div *ngIf="menuType==='default'" class="searchBar">
+            <div *ngIf="menuType==='default' || menuType ==='user'" class="searchBar">
                 <mat-form-field class="searchBar" appearance="fill">
                     <input class="inputbox" #searchInput matInput type="text" placeholder="Search for products"
                         (keyup)="serchProduct($event)" (focus)="showList()" (blur)="hideList()">

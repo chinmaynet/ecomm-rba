@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ChartType, ChartOptions } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { SharedService } from 'src/app/shared.service';
+import {ThemePalette} from '@angular/material/core';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -33,6 +34,7 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
   }
+  color: ThemePalette = 'primary';
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

@@ -1,0 +1,50 @@
+<div class="content">
+    <mat-grid-list cols="5" rowHeight="450">
+        <mat-grid-tile colspan="3">
+            <form [formGroup]="checkOutForm" class="shippingForm formElements"
+                (ngSubmit)="orderNow(checkOutForm.value)">
+                <div>
+                    <h1>Add Shipping Details</h1>
+                </div>
+                <div>
+                    <mat-form-field class="form-group">
+                        <input matInput type="text" name="name" formControlName="name" placeholder="Name" required>
+                        <mat-error *ngIf="name && name.invalid && name.touched">Name is required.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+                        <mat-error *ngIf="email && email.invalid && email.touched">Email is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-group">
+                        <input matInput type="number" name="contact" formControlName="contact" placeholder="Contact" required>
+                        <mat-error *ngIf="contact && contact.invalid && contact.touched">Contact is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-group">
+                        <textarea matInput type="text" id="address" formControlName="address" placeholder="Address"
+                            required></textarea>
+                        <mat-error *ngIf="address && address.invalid && address.touched">Address is
+                            required.</mat-error>
+                    </mat-form-field>
+                    <button [disabled]="checkOutForm.invalid" mat-raised-button type="submit">Order Now </button>
+                </div>
+
+            </form>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+            <div class="details">
+                <h1>Total Amount Payable: {{totalPrice | currency}}</h1>
+                <h2>Payment Methods:</h2>
+                <ul>
+                    <li>Cash On Delivery</li>
+                    <li>Net Banking</li>
+                    <li>UPI</li>
+                    <li>Credit Card</li>
+                </ul>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</div>

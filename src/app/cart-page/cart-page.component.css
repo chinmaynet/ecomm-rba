@@ -1,40 +1,75 @@
-.content{
-margin: 20px;
-text-align: center;
+.content {
+    margin: 20px;
+    text-align: center;
 
-}.tile{
+}
+
+.tile {
+
+    border: 2px solid grey;
+}
+
+.div1 {}
+
+.imgDiv {
+    margin-right: 20px;
+}
+
+.carousell {
+    float: left;
+    margin-right: 20px;
+}
+
+.data {
     
-    border: 2px solid grey; 
-}.div1{
-    float: left;
-    display: flex;
-    justify-content: space-around;
-  
-}.imgDiv{
-    margin-right: 20px;
-}.carousell {
-    float: left;
-    margin-right: 20px;
-}.data {
+    display: block;
+    text-align: center;
     float: right;
 }
-.productFooter a{
+.data div{
+    
+    text-align: left;
+}
+.userList button{
+    float: left;
+    /* border: 1px solid black; */
+}
+.productFooter a {
     margin-right: 10px;
     text-decoration: none;
     font-weight: bold;
 }
 
-.summery{
+.slick-carousel {
+    width: 100%;
+    height: 100%;
+}
+
+ img {
+    width: 300px;
+    height: 250px;
+    overflow: clip;
+}
+
+.summery {
     margin-top: 0%;
     height: 99%;
     width: 90%;
-    /* align-items: center; */
-    /* border: 3px solid red; */
     text-decoration: none;
+    text-align: center;
 }
 
-.summery ul{
-    float: left;
-    /* display: list-item; */
+.summery ul {
 
+    display: inline-block;
+
+    list-style-type: none;
+}
+
+.summery li {
+    padding: 5px;
+    font-size: medium;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
 }

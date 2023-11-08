@@ -42,49 +42,67 @@
     </mat-grid-list>
 </div> -->
 <div class="content">
-    <mat-grid-list cols="5" rowHeight="300">
+    <mat-grid-list cols="5" rowHeight="260">
         <mat-grid-tile colspan="2" rowspan="5">
             <div class="summery">
                 <h2>Summary</h2>
 
-                <ul>
-                    <li><h3>Amount</h3></li>
-                    <li><h3>Tax</h3></li>
-                    <li><h3>Delivery</h3></li>
-                    <li><h3>Discount</h3></li>
+                <ul class="userList">
+                    <li><span>Amount</span><span>{{priceSummery.price | currency}}</span></li>
+                    <li><span>Tax</span><span>{{priceSummery.tax | currency}}</span></li>
+                    <li><span>Delivery</span><span>{{priceSummery.deliveryCharge | currency}}</span></li>
+                    <li><span>Discount</span><span>{{priceSummery.discount | currency}}</span></li>
+                    <hr>
+                    <li><span>
+                            <h2>Total</h2>
+                        </span><span>
+                            <h2>{{priceSummery.total | currency}}</h2>
+                        </span>
+                    </li>
+                    <div> <button  routerLink="/checkout" mat-raised-button color="primary"> Checkout</button></div>
                 </ul>
 
+
+
             </div>
+
         </mat-grid-tile>
-        <mat-grid-tile colspan="3" class="tile"  *ngFor="let item of cartProducts">
+        <mat-grid-tile colspan="3" class="tile" *ngFor="let item of cartProducts">
             <div class="div1" *ngIf="cartProducts">
                 <div class="imgDiv">
                     <div class="carousell">
-                        <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
-                            <div ngxSlickItem *ngFor="let image of item.productImages">
+                        <ngx-slick-carousel class=" slick-carousel" [config]="carouselConfig">
+                            <!-- <div ngxSlickItem *ngFor="let image of item.productImages">
                                 <img [src]="image" alt="Product Image" width="300" height="250">
+                            </div> -->
+                            <div ngxSlickItem *ngFor="let image of item.productImages">
+                                <img [src]="image" alt="Product Image">
                             </div>
                         </ngx-slick-carousel>
                     </div>
                     <div class="data">
                         <div>
-                            <h2 [routerLink]="'/details/' + item.id">Name: {{ item.name }}</h2>
+                            <h2 [routerLink]="'/details/' + item.id">{{ item.name |titlecase }}</h2>
                         </div>
                         <div>
-                            <h4>Price: {{ item.price }}</h4>
+                            <h4>Price: {{ item.price | currency}}</h4>
                         </div>
                         <div>
-                            <h4>Color: {{ item.color }}</h4>
+                            <h4>Quantity: {{ item.quantity }}</h4>
+                        </div>
+                        <div>
+                            <h4>Color: {{ item.color |titlecase }}</h4>
                         </div>
                         <div class="productFooter">
-                            <a [routerLink]="'/details/' + item.id">View Details</a>
-                            <a [routerLink]="'/'">Buy Now</a>
+                            <!-- <a [routerLink]="'/details/' + item.id">View Details</a> -->
+                            <a mat-stroked-button (click)="removeTocart(item)" >Remove From Cart</a>
+                            <!-- <a [routerLink]="'/'">Buy Now</a> -->
                         </div>
                     </div>
                 </div>
             </div>
         </mat-grid-tile>
-       
+
 
     </mat-grid-list>
 </div>

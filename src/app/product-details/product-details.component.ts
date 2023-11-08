@@ -5,9 +5,6 @@ import { Product } from '../data-type';
 import { Cart } from '../data-type';
 
 import { switchMap } from 'rxjs/operators';
-
-// Import your services and models as needed.
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -118,21 +115,21 @@ export class ProductDetailsComponent implements OnInit{
     }
   }
   carouselConfig = {
-    slidesToShow: 1,
+    slidesToShow: 1,          
     slidesToScroll: 1,
-    arrows: true,
+    arrows: true,           
     dots: true,
-    autoplay: true,
-    autoplaySpeed: 10000,
+    autoplay: true,         
+    autoplaySpeed: 10000,    
     infinite: true,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-      },]
+      },]  
   };
   productQuantity: number = 1;
   handleQuantity(val: string) {

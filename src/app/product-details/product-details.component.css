@@ -1,38 +1,56 @@
-.content{
+.content {
     margin: 20px;
 }
-.card{
+
+.card {
     padding: 20px;
     width: 55%;
     margin: auto;
 }
 
-.carousel{   
-    height:300px;
+.carousel {
+    height: 300px;
     width: 350px;
 }
-.Quantitiy{
+
+.Quantitiy {
     display: flex;
 }
 
-.actn{
+.carousel {
+    width: 80%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.actn {
     display: block;
     margin: 0px;
     padding: 20px;
 }
 
-.inputBar{
+.inputBar {
     width: 20px;
     border: none;
     height: 30px;
 }
-.quantity{
+
+.quantity {
     width: 50%;
     display: flex;
     justify-content: space-between;
 }
-.buttons{
+
+.buttons {
     margin-top: 20px;
-    width:200px;
+    width: 200px;
     display: flex;
+}
+
+div[ngxSlickItem] img {
+    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;  
 }

@@ -36,6 +36,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgChartsModule } from 'ng2-charts';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 // import { Canvas } from 'canvas';
 // import { CanvasFontSpec } from 'chart.js';
 
@@ -54,6 +56,8 @@ import { CartPageComponent } from './cart-page/cart-page.component';
     TestComponent,
     ProductDetailsComponent,
     CartPageComponent,
+    CheckOutComponent,
+    MyOrdersComponent,
     // AddSellerComponent,
     // AdminHomeComponent,
   ],

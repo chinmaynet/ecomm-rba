@@ -176,7 +176,7 @@ export class AuthComponent implements OnInit {
       }
       cartDataList.forEach((product: Product, index) => {
         let cartData: Cart = {
-          ...product,
+          ...product, //shallow copy 
           userId,
           productId: product.id,
         };
