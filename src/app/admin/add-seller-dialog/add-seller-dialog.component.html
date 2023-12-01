@@ -1,0 +1,62 @@
+<div class="authPage">
+    <mat-card *ngIf="!saveResponce">
+        <mat-card-content> <mat-card-title>Add New Seller</mat-card-title>
+
+            <!-- //reactive -->
+            <form [formGroup]="adminAddSeller" class="formElements" (ngSubmit)="addSeller(adminAddSeller.value)">
+                <mat-form-field class="form-group">
+                    <input matInput type="text" formControlName="UserName" placeholder="Enter seller Name" required>
+                    <mat-error *ngIf="name && name.invalid && name.touched">Enter Valid Name</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input matInput type="email" formControlName="UserEmail" placeholder="Enter seller email" required>
+                    <mat-error *ngIf="email && email.invalid && email.touched">Enter Valid email</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input matInput type="number" formControlName="UserPhone" placeholder="Enter seller phone" required>
+                    <mat-error *ngIf="userPhone && userPhone.invalid && userPhone.touched">Enter Valid phone</mat-error>
+                </mat-form-field>
+                <!-- password auto generated , role = seller -->
+                <button [disabled]="adminAddSeller.invalid" mat-raised-button type="submit">Add Seller</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <!-- <mat-card *ngIf="saveResponce">
+        <mat-card-content>
+          <mat-card-title>Seller Details</mat-card-title>
+          <p><strong>Name:</strong> {{ saveResponce.UserName }}</p>
+          <p><strong>Email:</strong> {{ saveResponce.UserEmail }}</p>
+          <p><strong>Phone:</strong> {{ saveResponce.UserPhone }}</p>
+          <button mat-raised-button color="primary" (click)="sendEmailToSeller(saveResponce)">Send Credentials</button>
+          <button mat-raised-button (click)="addAnotherSeller()">Add Another Seller</button>
+        </mat-card-content>
+      </mat-card> -->
+    <mat-card *ngIf="saveResponce">
+        <mat-card-content>
+            <mat-card-title>Seller Details</mat-card-title>
+            <mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="UserName">
+                    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.UserName }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="UserEmail">
+                    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.UserEmail }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="UserPhone">
+                    <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.UserPhone }}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            </mat-table>
+            <div class="buttons">
+                <button mat-raised-button color="primary" (click)="sendEmailToSeller(saveResponce)">
+                    Send Credentials
+                </button>
+                <button mat-raised-button (click)="addAnotherSeller()">Add Another Seller</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

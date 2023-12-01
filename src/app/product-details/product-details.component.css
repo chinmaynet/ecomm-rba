@@ -4,7 +4,7 @@
 
 .card {
     padding: 20px;
-    width: 55%;
+    width: 70%;
     margin: auto;
 }
 
@@ -14,6 +14,19 @@
 }
 
 .Quantitiy {
+    display: flex;
+}
+.float-left-tile .custom-content {
+    float: left;
+    margin-right: 10px; /* Optional: Add some margin for spacing */
+  }
+.custom-content{
+    /* display: flex !important;
+    align-items: center !important;
+    justify-content: start !important; */
+}
+
+.gridtile {
     display: flex;
 }
 
@@ -30,13 +43,13 @@
 }
 
 .inputBar {
-    width: 20px;
+    width: 30px;
     border: none;
     height: 30px;
 }
 
 .quantity {
-    width: 50%;
+    width: 45%;
     display: flex;
     justify-content: space-between;
 }
@@ -52,5 +65,16 @@ div[ngxSlickItem] img {
     max-width: 100%;
     max-height: 100%;
     display: block;
-    margin: 0 auto;  
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        width: 100%;
+        margin: auto;
+    }
+
+    mat-grid-list {
+        height: 300px;
+    }
 }

@@ -14,8 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 // import { MatTableModule } from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AddSellerDialogComponent } from './add-seller-dialog/add-seller-dialog.component';
 @NgModule({
-  declarations: [AdminHomeComponent, AddSellerComponent, PieChartComponent],
+  declarations: [AdminHomeComponent, AddSellerComponent, PieChartComponent, AddSellerDialogComponent],
   imports: [
     CommonModule,MatCardModule,MatFormFieldModule,MatTableModule,MatPaginatorModule,MatSlideToggleModule,
     AdminRoutingModule,MatInputModule,MatSortModule,MatButtonModule,ReactiveFormsModule

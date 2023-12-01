@@ -1,0 +1,21 @@
+
+<div class="content">
+
+
+    <div class="user-pf-details">
+        <span [mat-dialog-close]="true" class="material-symbols-outlined close">
+            close
+            </span>
+        <h1 >Profile Details</h1>
+
+        <p> Id: {{userData.id}}</p>
+        <p> Name: {{userData.userName | titlecase}}</p>
+        <p> Role: {{userData.role | titlecase}}</p>
+        <p> Email: {{userData.userEmail}}</p>
+        <p> Phone: {{userData.userPhone}}</p>
+    </div>
+    <div class="user-pf-btn">
+        <button (click)="openLogoutDialog()" [mat-dialog-close]="true" mat-raised-button>Log Out</button>
+        <button mat-raised-button [mat-dialog-close]="true">Edit Profile</button>
+    </div>
+</div>

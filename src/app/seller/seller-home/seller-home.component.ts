@@ -36,8 +36,7 @@ export class SellerHomeComponent implements OnInit, AfterViewInit {
   openDeleteDialog(product:Product): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
-      data: product, 
-    
+      data: product,     
     });
   
     dialogRef.afterClosed().subscribe(result => {

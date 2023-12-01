@@ -1,26 +1,34 @@
-
 .auth-toggle-link {
     margin-top: 20px;
 }
-.auth-toggle-link a{
-   
+
+.auth-toggle-link a {
+
     color: blueviolet;
     cursor: pointer;
 }
 
-.form-group{
-    margin-right: 10px;   
-    width: 500px; 
+.form-group {
+    margin-right: 10px;
+    width: 500px;
 }
-.cardCSS{
+
+.cardCSS {
     /* width: 500px; */
     margin: auto;
     margin-top: 100px;
+ 
 }
 
-.card{
-/* height: 200px; */
-}
-.table{
+.card {
     /* height: 200px; */
+
+}
+
+.table {
+    /* height: 200px; */
+}
+
+@media screen and (max-width:576px) {
+    .form-group {width: 90%;}
 }

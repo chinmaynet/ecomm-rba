@@ -4,7 +4,7 @@
 <div class="authPage">
     <mat-card class="content cardCSS">
     <mat-card-content class="content">
-      <div *ngIf="!showLogIn">   
+      <div *ngIf="!showLogIn"  fxLayout="column" fxLayoutAlign="center center">   
         <mat-card-title><h1> Signup</h1></mat-card-title>
          <!-- //reactive -->
         <form [formGroup]="sellerSignUp" class="formElements" (ngSubmit)="Signup(sellerSignUp.value)">

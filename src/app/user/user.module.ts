@@ -24,9 +24,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { UserProfileComponentComponent } from './user-profile-component/user-profile-component.component';
 @NgModule({
   declarations: [
-    UserHomeComponent
+    UserHomeComponent,
+    UserProfileComponentComponent
   ],
   imports: [
     CommonModule,

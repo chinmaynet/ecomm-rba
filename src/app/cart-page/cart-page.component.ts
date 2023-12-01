@@ -9,14 +9,14 @@ import { PriceSummery } from '../data-type';
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent implements OnInit {
-
+  breakpoint!: number;
+  halfbreakpoint!: number;
   priceSummery: PriceSummery = {
     price: 0,
     discount: 0,
     tax: 0,
     deliveryCharge: 0,
     total: 0,
-
   }
 
   cartProducts: Product[] | null = null;
@@ -26,6 +26,10 @@ export class CartPageComponent implements OnInit {
   user = localStorage.getItem('user');
   userId = this.user && JSON.parse(this.user).id;
   ngOnInit(): void {
+    
+    if(!this.user){
+      this.router.navigate(['user-auth/auth'])
+    }
 
     this.product.getCartList2(this.userId).subscribe((cartItems: Product[]) => {
       if (cartItems) {
@@ -48,7 +52,7 @@ export class CartPageComponent implements OnInit {
         this.priceSummery.deliveryCharge = 100;
         this.priceSummery.total= totalPrice -(totalPrice/10)+(totalPrice/10)+100;
 
-        console.log("priceSummery",this.priceSummery)
+        console.log("priceSummery",this.priceSummery);
 
         if(!this.cartProducts.length){
           this.router.navigate(['/'])
@@ -56,9 +60,26 @@ export class CartPageComponent implements OnInit {
       }
     });
 
-    
+    this.setGridColumns(window.innerWidth);
   }
-
+  onResize(event: any) {  
+    this.setGridColumns(event.target.innerWidth);
+  }
+  setGridColumns(windowWidth: number) {
+    console.log("setGridColumns ",windowWidth )
+    if (windowWidth <= 576) {
+      this.breakpoint = 7;
+    } else if (windowWidth <= 768) {
+      this.breakpoint = 7;
+    } else if (windowWidth <= 992) {
+      this.breakpoint = 7;
+    } else if (windowWidth <= 1200) {
+      this.breakpoint = 7;
+    } else {
+      this.breakpoint = 7;
+      this.halfbreakpoint=4
+    }
+  }
   carouselConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -68,14 +89,14 @@ export class CartPageComponent implements OnInit {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
         }
       }

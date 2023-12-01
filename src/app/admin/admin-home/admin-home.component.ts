@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SignUp, UserWithRoles } from 'src/app/data-type';
+import { Product, SignUp, UserWithRoles } from 'src/app/data-type';
 import { AdminService } from '../admin-services/admin.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
@@ -10,6 +10,8 @@ import { ChartType, ChartOptions } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { SharedService } from 'src/app/shared.service';
 import {ThemePalette} from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSellerDialogComponent } from '../add-seller-dialog/add-seller-dialog.component';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -21,12 +23,18 @@ export class AdminHomeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private sharedService: SharedService,private adminService: AdminService, private router: Router) { 
+  constructor(public dialog: MatDialog, private sharedService: SharedService,private adminService: AdminService, private router: Router) { 
     this.sharedService.selectedRoleChanged.subscribe((role) => {
       this.selectedRole = role;
       console.log("role is",role)
       this.applyFilterWithoutEvent();
     });
+  }
+  openAddSellerDialog():any{
+    const dialogRef = this.dialog.open(AddSellerDialogComponent, {
+      // width: '450px',
+      // height:'630px',
+    });    
   }
   ELEMENT_DATA: UserWithRoles[] = [];
   dataSource = new MatTableDataSource<UserWithRoles>(this.ELEMENT_DATA);

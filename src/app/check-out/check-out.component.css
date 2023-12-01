@@ -1,19 +1,127 @@
-.content{
+.content {
     margin: 20px;
-}
-.form-group{
-    margin-right: 10px;   
-    width: 500px; 
+    
 }
 
-.shippingForm{
+/* .summery-form{
+    display: flex;
+    justify-content: space-between;
+} */
+.form-groupp {
+    padding: 15px;
+    width: 450px;
+    /* border: 2px solid black; */
+}
+mat-grid-tile{
+    /* border: 2px solid black; */
+}
+.payment-method{
+    /* display: flex;
+    justify-content: space-between; */
+}
+.cartSummery{
+ 
+    height: 500px;
+    /* width: 220px; */
+    padding: 15px;
+    /* border: 2px solid black; */
+}
+mat-list-item{
+    border: 1px solid rgb(230, 230, 230);
+ 
+}
+.item{
+    height: 25px;
+}
+.listItem{
+    border: 1px solid rgb(230, 230, 230);
+   padding: 10px;
+   margin: 0px;
+   height: 40px;
+}
+.item-price div{
+    padding: 0px;
+    margin: 0px;
+}
+.item-price{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+mat-list-item span{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group {
+    margin-right: 10px;
+    /* width: 500px; */
+    /* border: 2px solid black; */
+    width: 99%;
+}
+.tileform{
+    /* border: 2px solid black; */
+}
+.country-state-code{
+    display: flex;
+    justify-content: space-between;
+}
+.shippingForm {
+        /* border: 1px solid black; */
     text-align: center;
 }
-
+.summery-quantity{
+    float: left;
+}
 .shippingForm button {
     float: left;
 }
 .details {
+  
+    height: 470px;
+    width: 500px;
+    /* padding: 100px; */
+    /* border: 1px solid black; */
 
+}
+.detailss {
+    text-align: center;
+
+}
+.inputField{
     
+}
+.userList {
+    margin: auto 0;
+}
+
+.check-out-sm {
+    display: none;
+}
+.nameOnCard-creditCardNumber{
+    display: flex;
+    justify-content: space-between;
+}
+.expiration-cvv{
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 576px) {
+    .check-out-sm {
+        display: block;
+    }
+
+    .check-out-md {
+        display: none;
+    }
+
+    .form-group {
+        /* margin-right: 10px; */
+        width: 97%;
+    }
+
+    .shippingForm div {
+        align-items: center;
+    }
 }

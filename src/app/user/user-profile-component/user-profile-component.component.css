@@ -1,0 +1,24 @@
+.content{
+    margin: 20px;
+    /* border:  2px solid gray; */
+   
+}
+.user-pf-btn{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+    /* border:  2px solid gray; */
+}
+
+.close{
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.user-pf-details{
+    margin: auto;
+    align-items: center;
+    /* border:  2px solid gray; */
+    width: 350px;
+}

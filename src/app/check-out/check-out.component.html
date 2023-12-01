@@ -1,42 +1,10 @@
 <div class="content">
-    <mat-grid-list cols="5" rowHeight="450">
-        <mat-grid-tile colspan="3">
-            <form [formGroup]="checkOutForm" class="shippingForm formElements"
-                (ngSubmit)="orderNow(checkOutForm.value)">
-                <div>
-                    <h1>Add Shipping Details</h1>
-                </div>
-                <div>
-                    <mat-form-field class="form-group">
-                        <input matInput type="text" name="name" formControlName="name" placeholder="Name" required>
-                        <mat-error *ngIf="name && name.invalid && name.touched">Name is required.</mat-error>
-                    </mat-form-field>
-                    <mat-form-field class="form-group">
-                        <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
-                        <mat-error *ngIf="email && email.invalid && email.touched">Email is required.</mat-error>
-                    </mat-form-field>
+    <div class="check-out-sm" cols="1">
 
-                    <mat-form-field class="form-group">
-                        <input matInput type="number" name="contact" formControlName="contact" placeholder="Contact" required>
-                        <mat-error *ngIf="contact && contact.invalid && contact.touched">Contact is required.</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="form-group">
-                        <textarea matInput type="text" id="address" formControlName="address" placeholder="Address"
-                            required></textarea>
-                        <mat-error *ngIf="address && address.invalid && address.touched">Address is
-                            required.</mat-error>
-                    </mat-form-field>
-                    <button [disabled]="checkOutForm.invalid" mat-raised-button type="submit">Order Now </button>
-                </div>
-
-            </form>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2">
-            <div class="details">
-                <h1>Total Amount Payable: {{totalPrice | currency}}</h1>
-                <h2>Payment Methods:</h2>
+        <div>
+            <h1 class="detailss">Total Amount Payable: {{totalPrice | currency}}</h1>
+            <h2 class="detailss">Payment Methods:</h2>
+            <div class="userList">
                 <ul>
                     <li>Cash On Delivery</li>
                     <li>Net Banking</li>
@@ -44,7 +12,322 @@
                     <li>Credit Card</li>
                 </ul>
             </div>
-        </mat-grid-tile>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <form [formGroup]="checkOutForm" class="shippingForm formElements" (ngSubmit)="orderNow(checkOutForm.value)">
+            <div>
+                <h1>Add Shipping Details</h1>
+            </div>
+            <div>
+                <mat-form-field class="form-group">
+                    <input matInput type="text" name="name" formControlName="name" placeholder="Name" required>
+                    <mat-error *ngIf="name && name.invalid && name.touched">Name is required.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group">
+                    <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+                    <mat-error *ngIf="email && email.invalid && email.touched">Email is required.</mat-error>
+                </mat-form-field>
 
-    </mat-grid-list>
+                <mat-form-field class="form-group">
+                    <input matInput type="number" name="contact" formControlName="contact" placeholder="Contact"
+                        required>
+                    <mat-error *ngIf="contact && contact.invalid && contact.touched">Contact is required.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-group">
+                    <textarea matInput type="text" id="address" formControlName="address" placeholder="Address"
+                        required></textarea>
+                    <mat-error *ngIf="address && address.invalid && address.touched">Address is
+                        required.</mat-error>
+                </mat-form-field>
+                <button [disabled]="checkOutForm.invalid" mat-raised-button type="submit">Order Now </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="summery-form">
+
+        <form [formGroup]="checkOutForm" class="shippingForm formElements" (ngSubmit)="orderNow(checkOutForm.value)">
+            <mat-grid-list class="check-out-md" cols="19" rowHeight="650">
+
+                <mat-grid-tile colspan="5">
+                    <div class="cartSummery">
+                        <h1>Cart Summery</h1>
+                        <!-- <mat-list role="list">
+                                <mat-list-item role="listitem"><span>Item 1  </span> <span><h5>Description</h5></span></mat-list-item>
+                                <mat-list-item role="listitem"><span>Item 2 </span> <span><h5>Description</h5></span></mat-list-item>
+                                <mat-list-item role="listitem"><span>Item 3 </span> <span><h5>Description</h5></span></mat-list-item>
+                            </mat-list> -->
+
+                        <div *ngFor="let cartItem of cartProducts">
+                            <div class="listItem">
+                                <div class="item-price">
+                                    <div class="item">
+                                        <h3>{{cartItem.name}}</h3>
+                                    </div>
+                                    <div class="item">
+                                        <h3>{{cartItem.price | currency}}</h3>
+                                    </div>
+                                </div>
+                                <div class="item summery-quantity">
+                                    <h4>Quantity: {{cartItem.quantity}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Total Amount Payable: {{totalPrice | currency}}</h3>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="tileform" colspan="7">
+
+                    <div class="form-groupp">
+                        <div>
+                            <h1>Add Shipping Details</h1>
+                        </div>
+                        <mat-form-field class="form-group">
+                            <input matInput type="text" name="name" formControlName="name" placeholder="Name" required>
+                            <mat-error *ngIf="name && name.invalid && name.touched">Name is required.</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="form-group">
+                            <input matInput type="email" name="email" formControlName="email" placeholder="Email"
+                                required>
+                            <mat-error *ngIf="email && email.invalid && email.touched">Email is required.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group">
+                            <input matInput type="number" name="contact" formControlName="contact" placeholder="Contact"
+                                required>
+                            <mat-error *ngIf="contact && contact.invalid && contact.touched">Contact is
+                                required.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group">
+                            <textarea matInput type="text" id="address" formControlName="address" placeholder="Address"
+                                required></textarea>
+                            <mat-error *ngIf="address && address.invalid && address.touched">Address is
+                                required.</mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-group">
+                            <textarea matInput type="text" id="address2" formControlName="address2"
+                                placeholder="Address 2 (Optional)"></textarea>
+                            <mat-error *ngIf="address2 && address2.invalid">Address is
+                                Not Valid.</mat-error>
+                        </mat-form-field>
+
+                        <div class="country-state-code">
+                            <mat-form-field class="form-group">
+                                <mat-label>Country</mat-label>
+                                <select matNativeControl formControlName="country">
+                                    <option value="India">India</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                </select>
+                                <mat-error *ngIf="country && country.invalid">Country is
+                                    required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="form-group">
+                                <mat-label>State</mat-label>
+                                <select matNativeControl formControlName="state">
+                                    <!-- <option value="India">India</option>
+                            <option value="United States">United States</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option> -->
+                                </select>
+                            </mat-form-field>
+                            <mat-form-field class="form-group">
+                                <mat-label>Postal Code</mat-label>
+                                <input matInput type="number" name="postalCode" formControlName="postalCode"
+                                    placeholder="Postal Code">
+                                <mat-error *ngIf="postalCode && postalCode.invalid">Postal Code is
+                                    required. (Min length 6)</mat-error>
+                            </mat-form-field>
+
+                        </div>
+                        <button [disabled]="checkOutForm.invalid" mat-raised-button type="submit">Order Now </button>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="7">
+                    <div class="details">
+                        <h1>Total Amount Payable: {{totalPrice | currency}}</h1>
+                        <h2>Payment Methods:</h2>
+                        <!-- <ul>
+                            <li>Cash On Delivery</li>
+                            <li>Net Banking</li>
+                            <li>UPI</li>
+                            <li>Credit Card</li>
+                        </ul> -->
+                        <mat-radio-group class="form-group payment-method" formControlName="paymentMethod"
+                            aria-label="Select an option" required>
+                            <mat-radio-button (click)="codSelected()" value="1">Cash On Delivery</mat-radio-button>
+                            <mat-radio-button (click)="creditCardSelected()" value="2">Credit Card</mat-radio-button>
+                            <mat-radio-button (click)="debitCardSelected()" value="3">Debit Card</mat-radio-button>
+                            <mat-radio-button (click)="payPalSelected()" value="4">PayPal</mat-radio-button>
+                            <mat-radio-button (click)="upiSelected()" value="5">UPI</mat-radio-button>
+
+
+                        </mat-radio-group>
+
+
+                        <ng-container *ngIf="checkOutForm.get('paymentMethod')?.value==='2' ">
+
+                            <div class="nameOnCard-creditCardNumber">
+                                <mat-form-field class="form-group">
+                                    <mat-label>Name on card</mat-label>
+                                    <input matInput type="text" name="name" formControlName="nameOnCard"
+                                        placeholder="Full name as displayed on card" required>
+                                    <mat-error *ngIf="nameOnCard && nameOnCard.invalid">Name as per card is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field class="form-group">
+                                    <mat-label>Credit card number</mat-label>
+                                    <input matInput type="number" name="creditCardNumber"
+                                        formControlName="creditCardNumber" placeholder="Credit Card Number" required>
+                                    <mat-error *ngIf="creditCardNumber && creditCardNumber.invalid">Credit card number
+                                        is required.</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="expiration-cvv">
+                                <mat-form-field class="form-group">
+                                    <mat-label>Expiration</mat-label>
+                                    <input matInput [matDatepicker]="dp" [formControl]="date">
+                                    <mat-hint>MM/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                                    <mat-datepicker #dp startView="multi-year"
+                                        (monthSelected)="setMonthAndYear($event, dp)" panelClass="example-month-picker">
+                                    </mat-datepicker>
+                                    <mat-error *ngIf="expiration && expiration.invalid">Expiration date is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+
+                                <mat-form-field class="form-group">
+                                    <mat-label>CVV</mat-label>
+                                    <input matInput type="number" name="cvv" formControlName="cvv" placeholder="CVV"
+                                        required>
+                                    <mat-error *ngIf="cvv && cvv.invalid">CVV is required.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="checkOutForm.get('paymentMethod')?.value==='3' ">
+
+                            <div class="nameOnCard-creditCardNumber">
+                                <mat-form-field class="form-group">
+                                    <mat-label>Name on card</mat-label>
+                                    <input matInput type="text" name="name" formControlName="nameOnDebitCard"
+                                        placeholder="Full name as displayed on card" required>
+                                    <mat-error *ngIf="nameOnDebitCard && nameOnDebitCard.invalid">Name as per card is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field class="form-group">
+                                    <mat-label>Debit card number</mat-label>
+                                    <input matInput type="number" name="debitCardNumber"
+                                        formControlName="debitCardNumber" placeholder="Debit Card Number" required>
+                                    <mat-error *ngIf="debitCardNumber && debitCardNumber.invalid">Debit card number
+                                        is required.</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="expiration-cvv">
+                                <mat-form-field class="form-group">
+                                    <mat-label>Expiration</mat-label>
+                                    <input matInput type="date" name="expirationDebit" formControlName="expirationDebit"
+                                        placeholder="expiration date" required>
+                                    <mat-error *ngIf="expiration && expiration.invalid">Expiration date is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field class="form-group">
+                                    <mat-label>CVV</mat-label>
+                                    <input matInput type="number" name="cvvDebit" formControlName="cvvDebit"
+                                        placeholder="CVV" required>
+                                    <mat-error *ngIf="cvv && cvv.invalid">CVV is required.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </ng-container>
+
+
+                        <ng-container *ngIf="checkOutForm.get('paymentMethod')?.value==='4' ">
+
+                            <div class="nameOnCard-creditCardNumber">
+                                <mat-form-field class="form-group">
+                                    <mat-label>PayPal Id</mat-label>
+                                    <input matInput type="text" name="payPalId" formControlName="payPalId"
+                                        placeholder="Enter PayPal Id" required>
+                                    <mat-error *ngIf="payPalId && payPalId.invalid">PayPal ID is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+                            </div>
+
+                        </ng-container>
+
+
+                        <ng-container *ngIf="checkOutForm.get('paymentMethod')?.value==='5' ">
+
+                            <div class="nameOnCard-creditCardNumber">
+                                <mat-form-field class="form-group">
+                                    <mat-label>UPI Id</mat-label>
+                                    <input class="inputField" matInput type="text" name="upiId" formControlName="upiId"
+                                        placeholder="Enter UPI Id" required>
+                                    <mat-error *ngIf="upiId && upiId.invalid">UPI ID is
+                                        required.</mat-error>
+                                </mat-form-field>
+
+                            </div>
+
+                        </ng-container>
+                        <!-- ... (other form controls) ... -->
+
+                        <!-- <div class="nameOnCard-creditCardNumber">
+                            <mat-form-field class="form-group">
+                                <mat-label>Name on card</mat-label>
+                                <input matInput type="text" name="name" formControlName="nameOnCard"
+                                    placeholder="Full name as displayed on card" required>
+                                    <mat-error *ngIf="nameOnCard && nameOnCard.invalid">Name as per card is
+                                        required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="form-group">
+                                <mat-label>Credit card number</mat-label>
+                                <input matInput type="number" name="creditCardNumber" formControlName="creditCardNumber"
+                                    placeholder="Credit Card Number" required>
+                                    <mat-error *ngIf="creditCardNumber && creditCardNumber.invalid">Credit card number is
+                                        required.</mat-error>
+                            </mat-form-field>
+
+                        </div>
+
+                        <div class="expiration-cvv">
+                            <mat-form-field class="form-group">
+                                <mat-label>Expiration</mat-label>
+                                <input matInput type="date" name="expiration" formControlName="expiration"
+                                    placeholder="expiration date" required>
+                                    <mat-error *ngIf="expiration && expiration.invalid">Expiration date is
+                                        required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="form-group">
+                                <mat-label>CVV</mat-label>
+                                <input matInput type="number" name="cvv" formControlName="cvv"
+                                    placeholder="Credit Card Number" required>
+                                    <mat-error *ngIf="cvv && cvv.invalid"> CVV is
+                                        required.</mat-error>
+                            </mat-form-field>
+                        </div> -->
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </div>
 </div>

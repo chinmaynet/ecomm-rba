@@ -1,7 +1,41 @@
 <div class="content">
-    <div class="">
+    <div class="m-device">
         <h2>Products You Search</h2>
         <mat-grid-list  class="grid" cols="1" gutterSize="16px" [rowHeight]="325">
+            <mat-grid-tile class="tile" *ngFor="let item of searchProducts">
+                <div class="div1">
+                    <div class="imgDiv">
+                        <div class="carousell">
+                            <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig">
+                                <div ngxSlickItem *ngFor="let image of item.productImages">
+                                    <img [src]="image" alt="Product Image" width="300" height="250">
+                                </div>                                                 
+                            </ngx-slick-carousel>
+                        </div>
+                        <div class="data">
+                            <div >
+                                <h2 routerLink="/details/{{item.id}}">Name: {{item.name}}</h2>
+                            </div>
+                            <div>
+                                <h4>Price: {{item.price}}</h4>
+                            </div>
+                            <div>
+                                <h4>Color: {{item.color}}</h4>
+                            </div>
+    
+                            <div class="productFooter">
+                                <a routerLink="/details/{{item.id}}">View Details</a>
+                                <a routerLink="">Add To Cart</a>
+                            </div>
+                        </div>       
+                    </div>                    
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="sm-device">
+        <h2>Products You Search</h2>
+        <mat-grid-list  class="grid" cols="1" gutterSize="16px" [rowHeight]="480">
             <mat-grid-tile class="tile" *ngFor="let item of searchProducts">
                 <div class="div1">
                     <div class="imgDiv">

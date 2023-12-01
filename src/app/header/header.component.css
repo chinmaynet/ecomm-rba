@@ -72,7 +72,7 @@
 }
 
 .fixed-button-container button {
-  color:white;
+  color: white;
   background-color: grey;
   border: none;
   padding: 10px;
@@ -94,58 +94,250 @@ nav a:hover {
   color: white;
   background-color: #42545C;
 }
-.listItems  {
-  
-}
+
+.listItems {}
+
 nav a.active {
   background-color: black;
 }
 
+.ecomm-menue-heading {
+  display: flex;
+
+  align-items: center;
+}
+
+.ecomm-menue-heading img {
+  margin-left: 0px;
+  margin-right: 15px;
+}
+
 .mainFrame {
-  margin: 20px;
+  /* margin: 20px; */
+}
+
+.example-toolbar {
+  margin: 0px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchBar {
-  margin-left: 150px;
-  /* margin: auto; */
-  margin-top: 10px;
-  padding: auto;
   position: relative;
-  /* align-items: center;
-  text-align: center; */
+  margin: auto;  
+  display: block;
+}
+.searchBar2{
+  position: relative;
+  /* border : 1px solid rgb(209, 209, 209); */
+}
+.e-comm-logo {
+  height: 100px;
+  width: 210px;
 }
 
-.e-comm-logo{
-  height: 100px;
-  width:210px;
+.e-comm-sm {
+  display: none;
 }
-.suggestedResult{
+.sB2{
+  display: flex;
+  justify-content: space-between;
+}
+.suggestedResult {
   position: absolute;
   display: list-item;
-  z-index: 1; 
-  left: 35%;
+  z-index: 1;
   min-width: 270px;
   top: 75%;
   background-color: white;
   border-radius: 10px;
-  border: 1px solid rgb(238, 236, 236);
+  /* border: 1px solid rgb(238, 236, 236); */
 }
-.suggestedResult mat-list-item{
+
+.suggestedResult mat-list-item {
   cursor: pointer;
 }
-a{
+.suggestedResult2 {
+  position: absolute;
+  display: list-item;
+  z-index: 1;
+ 
+  top: 75%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(238, 236, 236); 
+  display: none;
+}
+
+.suggestedResult2 mat-list-item {
   cursor: pointer;
 }
-.footer{
+a {
+  cursor: pointer;
+}
+
+.footer {
   padding: 10px;
   text-align: center;
-  position:relative;
+  position: relative;
   bottom: 0;
   right: 0;
   left: 0;
-   margin-top: auto;  
+  margin-top: auto;
 }
-.footer a{
+
+.footer a {
   margin-left: 5px;
 }
 
+.inputbox {
+  border: none;
+}
+
+.e-comm-nav-bar-2 {
+  text-decoration: none;
+  margin: auto;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 3px 15px rgb(226, 218, 218);
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.searchBarMarginTop{
+  margin-top: 4px;
+}
+.e-comm-nav-bar-2 div {
+
+  width: 1180px;
+  display: flex;
+  justify-content: center;
+}
+.material-symbols-outlined{
+  cursor: pointer;
+}
+.e-comm-nav-bar-2 div ul {
+  font-size: medium;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.e-comm-nav-bar-2 div ul li {
+  list-style-type: none;
+  cursor: pointer;
+  /* margin:2px; */
+}
+
+
+@media screen and (max-width: 768px) {
+  .example-app-name {
+    display: none;
+  }
+  .mat-toolbar img {
+    display: none;
+  }
+  
+
+  .e-comm-nav-bar-2 div ul {
+    font-size: medium;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+
+  }
+
+  .e-comm-nav-bar-2 li {
+    margin: 3px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .searchBar {
+    /* display: none; */
+    margin-left: 10px;
+    width: 70%;
+    display: none;
+  }
+ 
+  .e-comm-sm {
+    display: block;
+  }
+
+  .e-comm-nav-bar-2 div ul {
+    font-size: medium;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+
+  }
+
+  .e-comm-nav-bar-2 li {
+    margin: 3px;
+  }
+
+  .example-sidenav {
+    width: 40%;
+  }
+
+  .inputbox2 {
+    margin: 5px;
+    width: 55%;
+  }
+
+  .e-comm-logo {
+    height: 70px;
+    width: 140px;
+    object-fit: cover;
+  }
+
+  .mat-toolbar img {
+    display: none;
+  }
+
+  .suggestedResult {
+    min-width: 75%;
+  }
+
+  .example-app-name {
+    display: none;
+  }
+
+  /* .example-toolbar{
+    display: flex;
+    justify-content: space-between;
+  } */
+  /* .searchBar{
+    float: right;
+  } */
+}
+.e-comm-nav-bar-2 {
+ 
+}
+
+
+.headernav {
+  width: 400px;
+  display: flex;
+  /* text-align: center; */
+  justify-content: space-evenly;
+  /* border: 2px solid black; */
+
+
+}
+
+.e-comm-md-device-nav {
+  float: right;
+}
+
+.headernav a {
+  color: black;
+  margin-right: 10px;
+  font-size: medium;
+  text-decoration: none;
+}

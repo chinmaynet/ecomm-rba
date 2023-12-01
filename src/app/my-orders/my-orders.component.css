@@ -1,10 +1,26 @@
-.content{
-    margin:20px;
+.content {
+    margin: 20px;
     width: 70%;
     margin: auto;
     align-items: center;
 }
-.prodTable{
-    margin:20px;
+.card{
+    margin-top: 15px;
+}
+.prodTable {
+    margin: 20px;
     margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        width: 95%;
+    }
 }

@@ -27,15 +27,17 @@ export interface Product {
 export interface Cart{
     id: string | undefined,
     name: string,
-    price: number,
-    color: string,
+    price: number,    
     catagory: string,
     description: string,
     ImageFiles:File[],
-    productImages:any[],       
+    productImages:any[],   
+        
+    color: string,
     quantity:undefined | number,
     userId:string,
     productId:string,
+    
     // imagePaths:undefined|any[]
 }
 export interface UserWithRoles {

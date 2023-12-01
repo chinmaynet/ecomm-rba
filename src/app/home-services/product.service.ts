@@ -106,7 +106,8 @@ export class ProductService {
             ...product,
             productImages: productImages,
           };
-        });
+        })
+        .slice(0, 4);
       })
     );
   }
@@ -178,9 +179,10 @@ export class ProductService {
   //   }
   // });    
   // }
+  
   getCartList(userId: string): Observable<Cart[]> {
     const params = new HttpParams().set('userId', userId);
-    console.log("cart List called");
+    //  console.log("cart List called");
     return this.http.get<Cart[]>(`https://localhost:44376/api/E_Comm/cart`, { params })
       // .subscribe((result)=>{
       //   if(result && result.body){

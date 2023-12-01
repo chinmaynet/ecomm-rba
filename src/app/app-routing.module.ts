@@ -11,11 +11,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { CatagoryComponent } from './catagory/catagory.component';
 // import { SellerAddProductComponent } from './seller/seller-add-product/seller-add-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'test', component: TestComponent },
+  { path: 'catagory/:catagory', component: CatagoryComponent },
   { path: 'checkout', component: CheckOutComponent },
   { path: 'my-orders', component: MyOrdersComponent },
   { path: 'cart-page', component: CartPageComponent },

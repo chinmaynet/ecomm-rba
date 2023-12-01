@@ -1,12 +1,12 @@
 .content{
-    margin: 10px;
+    margin: auto;
+
     padding: 10px;
     width: 70%;
-    margin: auto;
-    /* max-height: 300px; */
+
 }
 .table{
-    /* max-height: 300px; */
+    margin-top: 15px;
 }
 
 .scrollable-table {
@@ -36,4 +36,16 @@
 
 .chart-container{
     height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        width: 95%;
+    }
 }

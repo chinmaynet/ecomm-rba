@@ -93,6 +93,6 @@ userRole = new EventEmitter<string>();
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
 
-    this.userRoleSubject.next(userData.role);
+    this.userRoleSubject.next(userData?.role);
   }
 }

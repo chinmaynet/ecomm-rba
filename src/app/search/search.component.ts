@@ -12,15 +12,15 @@ export class SearchComponent  implements OnInit{
   searchProducts:Product[] | null = null;
   constructor(private product:ProductService, private activatedRoute:ActivatedRoute){}
   searchResult:Product[]|undefined=[];
+
   ngOnInit(): void {    
-    let query= this.activatedRoute.snapshot.paramMap.get('query');
-    console.warn("query is ",query);
-    
-    query && this.product.searchProducts2(query).subscribe((result)=>{
-      this.searchProducts=result;
-    })
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const query = params.get('query');
+      query && this.product.searchProducts2(query).subscribe((result) => {
+        this.searchProducts = result;
+      });
+    });
   }
-  
   carouselConfig = {
     slidesToShow: 1,          
     slidesToScroll: 1,

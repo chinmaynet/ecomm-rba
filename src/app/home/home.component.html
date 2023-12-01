@@ -1,13 +1,165 @@
+<!-- 
+<div class="banner-container">
+    <div class="banner">
+        <ngx-slick-carousel [config]="carouselConfigBanner" (mouseover)="sliderPause(false)" (mouseout)="sliderPause(true)"
+            [ngClass]="{'black-arrows': true}">
+            <div ngxSlickItem *ngFor="let imagePath of imagePaths">
+                <img [src]="getImagePath(imagePath)" alt="Product Image">
+            </div>
+        </ngx-slick-carousel>
+    </div>    
+</div> -->
+<!-- <div class="contentt"> -->
+<!-- <div class="grid"> -->
+<mat-grid-list cols="1" rowHeight="630px">
+    <mat-grid-tile>
+        <div class="banner-container">
+            <div class="banner">
+                <ngx-slick-carousel [config]="carouselConfigBanner" (mouseover)="sliderPause(false)"
+                    (mouseout)="sliderPause(true)">
+                    <div ngxSlickItem *ngFor="let imagePath of imagePaths">
+                        <img [src]="getImagePath(imagePath)" alt="Product Image">
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<div class="contentt">
+
+    <div class="grid e-comm-home-div-2-data">
+        <div class="e-comm-home-div-2">
+            <h1>The best helmet for any use, made from technologies developed for MotoGP™.</h1>
+            <h3>Finally, a comfortable, versatile, and safe road helmet for any use, any motorbike, and any rider thanks
+                to the same advanced materials and innovative technology used to help world champions achieve the
+                maximum in the most extreme conditions.
+
+                Everything you need is now combined with everything you've ever wanted.</h3>
+            <button (click)="getByCatagory('Helmet')" mat-raised-button>SHOP NOW</button>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+<div class="contentt">
+    <div class="grid">
+        <mat-grid-list cols="4" rowHeight="80px">
+            <mat-grid-tile class="safety-gears" colspan="4">
+                <h1>Safety Gears</h1>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list [cols]="breakpoint2" [rowHeight]="rowHeight2">
+            <!--  rowHeight="650px"-->
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <img class="tileImage3" src="assets/agv1.jpg" alt="agv-jacket">
+            </mat-grid-tile>
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <div class="grid3tileData">
+                    <h2> A protection that
+                        exceeds every expectation</h2>
+                    <h3>
+                        K6 S provides the security riders need to fully express themselves in any situation, due to its
+                        world championship level protection. The premium carbon-aramid fiber shell and five EPS
+                        densities offer the same protection that professional MotoGP™ riders are guaranteed. Due to the
+                        stringent AGV Extreme Safety design protocol, K6 S passes all the tests required by the strict
+                        ECE22.06 standard by a large margin
+                        <!-- , making the helmet safer than the levels required by the
+                        latest road homologations.
+                        All this plus lightness like none other -->
+                        .
+
+                    </h3><button routerLink="/details/2b64783c-1d4b-402d-a224-f72cdee84ad9" mat-raised-button>SHOP NOW</button>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <div class="grid3tileData">
+                    <h2>Every detail is
+                        designed to protect</h2>
+                    <h3>
+                        Every detail of K6 S is designed to guarantee the safety of its wearer. The visor mechanisms are
+                        incredibly small, to maximize EPS on the surface and maximize the area covered by ​​the shell.
+                        The profile of the helmet is designed to minimize the chances of impact with the collarbone.
+                        An AGV invention, now a racing world standard.</h3>
+                    <button routerLink="/details/2b64783c-1d4b-402d-a224-f72cdee84ad9" mat-raised-button>SHOP NOW</button>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <img class="tileImage3" src="assets/agv2.jpg" alt="agv-jacket">
+            </mat-grid-tile>
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <img class="tileImage3" src="assets/agv3.jpg" alt="agv-jacket">
+            </mat-grid-tile>
+            <mat-grid-tile class="Gridtile3" [colspan]="halfBreakpoint">
+                <div class="grid3tileData">
+                    <h2>Ultravision: see more,
+                        under any circumstance</h2>
+                    <h3>
+                        Exclusive AGV Ultravision guarantees 190° horizontal field of vision which means seeing the
+                        road, the corners, and the obstacles better, and ahead of time. The Optical Class 1 visor
+                        features the 100% Max Vision Pinlock 120 anti-fog system and is up to 4.3 mm thick. The
+                        Micro-Lock system allows the visor to be opened for air flow while keeping the visor securely
+                        fastened to the chinguard.
+                         <!-- High level characteristics that are designed to instill the
+                        confidence needed to win a world championship and that are now available on a helmet for any
+                        use. -->
+                    </h3>
+                    <button routerLink="/details/2b64783c-1d4b-402d-a224-f72cdee84ad9" mat-raised-button>SHOP NOW</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+<div class="content">
+    <div class="grid">
+        <mat-grid-list [cols]="breakpoint2" rowHeight="315px" gutterSize="15px">
+            [rowHeight]="rowHeight3"
+            <mat-grid-tile class="ad-image1"
+             [colspan]="halfBreakpoint" [rowspan]="2">
+                <img class="tileImage" src="assets/agv-helmet.jpg" alt="agv-jacket">
+                <!-- <img class="tileImage" src="assets/agv-riding-gears.jpg" alt="agv-jacket"> -->
+            </mat-grid-tile>
+            <mat-grid-tile class="helmet1" [colspan]="halfBreakpoint">
+                <div class="grid2tileData ">
+                    <h2>DEVELOPED WITH YOUR HEAD IN MIND</h2>
+                    <h3>VERSATILE, JUST THE WAY YOU LIKE IT
+                        The visor, adjustable to 5 positions, allows you to adjust the air flow inside the helmet
+                        according to your needs. Furthermore, the patented Extra Quick Release System mechanism means
+                        that the visor is easy and practical to change.</h3>
+                    <button routerLink="details/b4922388-748f-41de-ba24-ce5b36696af6" mat-raised-button>Buy Now</button>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="jacket1" [colspan]="halfBreakpoint">
+                <div class="grid2tileData">
+                    <h2>CERTIFIED FOR EVERY SITUATION</h2>
+                    <h3>Jacket is a race-derived waterproof sport textile jacket made with advanced stretch materials
+                        and
+                        features a 3D tailored sport silhouette and refined detailing. The silhouette is made with a new
+                        pattern giving the jacket a real leather jacket look, supported by the race derived extended
+                        elbow armor.
+                         <!-- The jacket provides unrivaled comfort and freedom of movement through the extensive
+                        use of stretch.  -->
+                    </h3> 
+                        <button routerLink="details/43204337-2825-453c-b3e4-14ac8db328aa" mat-raised-button>Buy Now</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
 <div class="content">
     <div class="grid">
         <h2>Trendy Products</h2>
 
-        <mat-grid-list  cols="4" gutterSize="12px" [rowHeight]="400">
+        <mat-grid-list [cols]="breakpoint" gutterSize="12px" (window:resize)="onResize($event)" [rowHeight]="400">
             <mat-grid-tile *ngFor="let product of trendyProducts" class="tile">
 
-                <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig" (mouseover)="sliderPause(false)" (mouseout)="sliderPause(true)" [ngClass]="{'black-arrows': true}">
+                <ngx-slick-carousel class="carousel slick-carousel" [config]="carouselConfig"
+                    (mouseover)="sliderPause(false)" (mouseout)="sliderPause(true)" [ngClass]="{'black-arrows': true}">
                     <div ngxSlickItem *ngFor="let image of product.productImages">
-                        <img routerLink="/details/{{product.id}}" [src]="image" alt="Product Image" width="250" height="250">
+                        <img routerLink="/details/{{product.id}}" [src]="image" alt="Product Image" width="250"
+                            height="250">
+
+                            <!-- <iframe routerLink="/details/{{product.id}}" src="image" alt="Product Image" width="250"
+                            height="250"></iframe> -->
                         <div>
                             <div>
                                 <p routerLink="/details/{{product.id}}">Name: {{product.name}}</p>
@@ -32,4 +184,38 @@
       <img [src]="getFullImagePath(product.productImages[0].imagePath)" alt="Product Image">
     </div>
     </div> -->
+    </div>
+</div>
+<div>
+    <mat-grid-list class="gridList4" [cols]="breakpoint4" [rowHeight]="rowHeight4" gutterSize="12px">
+        <mat-grid-tile class="gridListTile4" colspan="1">
+            <div class="gridListTileData4">
+                <div style="font-size:xx-large;"  class="material-symbols-outlined">
+                    local_atm
+                </div>
+                <h2>SECURE
+                    PAYMENT</h2>
+                <h4>We guarantee the security of all transactions</h4>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <div class="gridListTileData4">
+                <span style="font-size:xx-large;" class="material-symbols-outlined">
+                    local_shipping
+                </span>
+                <h2>SHIPMENTS WITH EXPRESS COURIER</h2>
+                <h4>The express courier delivers in 3/5 days in Europe, in 4/7 days in the rest of the world</h4>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <div class="gridListTileData4">
+                <div style="font-size:xx-large;" class="material-symbols-outlined">
+                    currency_exchange
+                </div>
+                <h2>FREE
+                    RETURNS</h2>
+                <h4>If you want to return the product, you have 30 days to do it</h4>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

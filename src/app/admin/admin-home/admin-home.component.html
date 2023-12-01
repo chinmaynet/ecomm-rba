@@ -1,8 +1,12 @@
+
+<div class="table">
 <mat-card class="content">
+
   <div class="prodTable">
     <div><mat-card-title>User List</mat-card-title></div>
     <div class="cardFilter">
-      <button mat-raised-button (click)="navigateToAddSeller()">Add Seller</button>
+      <!-- <button mat-raised-button (click)="navigateToAddSeller()">Add Seller</button> -->
+      <button mat-raised-button (click)="openAddSellerDialog()">Add Seller</button>
       <button mat-raised-button (click)="togglePieChart()">Show Pie Chart</button>
     </div>
   </div>
@@ -12,8 +16,6 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. admin" #input>
     <!-- <input matInput (keyup)="applyFilterWithoutEvent()" placeholder="Ex. admin" #input> -->
   </mat-form-field>
-
-
   <mat-card-content>
     <div class="scrollable-table">
       <mat-table class="table" [dataSource]="dataSource" matSort #matSort>
@@ -37,13 +39,14 @@
         </ng-container>
 
         <!-- <ng-container matColumnDef="ActivityStatus">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Activity Status </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.activityStatus }} </mat-cell>
-        </ng-container> -->
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Activity Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.activityStatus }} </mat-cell>
+          </ng-container> -->
         <ng-container matColumnDef="ActivityStatus">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Status </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-slide-toggle  [color]="color" [checked]="element.activityStatus === 'active'" (change)="toggleActivityStatus(element)">
+            <mat-slide-toggle [color]="color" [checked]="element.activityStatus === 'active'"
+              (change)="toggleActivityStatus(element)">
               {{ element.activityStatus }}
             </mat-slide-toggle>
           </mat-cell>
@@ -58,6 +61,7 @@
       aria-label="Select page of users"></mat-paginator>
   </mat-card-content>
 </mat-card>
+</div>
 <!-- <div class="chart-container">
   <canvas id="RoleChart" (click)="handleSelectedRole('Admin')">Admin</canvas>
   <canvas id="RoleChart" (click)="handleSelectedRole('Seller')">Seller</canvas>

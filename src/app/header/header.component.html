@@ -1,106 +1,272 @@
 <mat-drawer-container class="example-container" autosize>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-            <div [ngSwitch]="menuType">
-                <div *ngSwitchCase="'default'">
-                    <!-- <nav>  <h1 class="example-app-name">E-commerce Project</h1></nav> -->
-                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
-                  
-                    <nav>
-                        <a routerLink="">Home</a>
-                    </nav>
-                    <nav>
-                        <a (click)="redirectToCart()">Cart ({{cartItems}})</a>
-                        <!-- <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>  -->
-                    </nav>
-                    <nav *ngIf="sellerOrAdmin">
-                        <a  routerLink="/my-orders">My Orders</a>
-                    </nav>
-                    <nav>
-                        <a routerLink="/user-auth/auth">Login</a>
-                    </nav>
-                </div>
-                <div *ngSwitchCase="'user'">
-                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
-                    <nav>
-                        <a routerLink="">Home</a>
-                    </nav>
-                    <nav>
-                        <a routerLink="/user/user-home">User Home</a>
-                    </nav>
-                    <nav>
-                        <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>
-                    </nav>
-                    
-                    <nav>
-                        <a (click)="openDeleteDialog()">Logout</a>
-                    </nav>
-                    <nav>
-                        <a>{{userName | titlecase}}</a>
-                    </nav>
-                </div>
-                <div *ngSwitchCase="'seller'">
-                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
-                    <nav>
-                        <a routerLink="">Home</a>
-                    </nav>
-                    <nav>
-                        <a routerLink="seller/seller-home">Product List</a>
-                    </nav>
-                    <nav>
-                        <a (click)="openDeleteDialog()">Logout</a>
-                    </nav>
-                    <nav>
-                        <a>{{userName | titlecase}} (SELLER)</a>
-                    </nav>
-                </div>
-                <div *ngSwitchCase="'admin'">
-                    <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
-                    <nav>
-                        <a routerLink="">Home</a>
-                    </nav>
-                    <nav>
-                        <a routerLink="admin/admin-home">Admin Home</a>
-                    </nav>
-                    <nav>
-                        <a (click)="openDeleteDialog()">Logout</a>
-                    </nav>
-                    <nav>
-                        <a>{{userName | titlecase}} (ADMIN)</a>
-                    </nav>
-                </div>
-            </div>
-        </mat-drawer>
-        <mat-toolbar class="example-toolbar">
+    <!-- <mat-drawer #drawer2 class="example-sidenav drawer2" mode="over">
+        <div [ngSwitch]="menuType">
+            <div>
+                <nav>
+                    <button mat-menu-item (click)="getByCatagory('Super sports')">Super Sports</button>
+                </nav>
+                <nav>
 
-            <button mat-icon-button (click)="drawer.toggle()">
+                    <button mat-menu-item (click)="getByCatagory('Sports Tourer')">Sports Tourer</button>
+                </nav>
+                <nav>
+                    <button mat-menu-item (click)="getByCatagory('adventure-sports')">Adventure</button>
+
+
+                </nav>
+                <nav>
+                    <button mat-menu-item (click)="getByCatagory('Hyper Sports')">Hyper Sports</button>
+
+                </nav>
+                <nav>
+                    <button mat-menu-item (click)="getByCatagory('Helmet')">Helmets</button>
+                </nav>
+                <nav>
+                    <button mat-menu-item (click)="getByCatagory('Jacket')">Jackets</button>
+                </nav>
+            </div>
+        </div>
+    </mat-drawer> -->
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <!-- fxHide.lt-sm  mode="side" -->
+        <div [ngSwitch]="menuType">
+            <div *ngSwitchCase="'default'">
+                <!-- <nav>  <h1 class="example-app-name">E-commerce Project</h1></nav> -->
+                <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+
+                <nav>
+                    <a routerLink="">Home</a>
+                </nav>
+                <nav>
+                    <a (click)="redirectToCart()">Cart ({{cartItems}})</a>
+                    <!-- <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>  -->
+                </nav>
+                <nav *ngIf="sellerOrAdmin">
+                    <a routerLink="/my-orders">My Orders</a>
+                </nav>
+                <nav>
+                    <a routerLink="/user-auth/auth">Login</a>
+                </nav>
+            </div>
+            <div *ngSwitchCase="'user'">
+                <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                <nav>
+                    <a routerLink="">Home</a>
+                </nav>
+                <nav>
+                    <a routerLink="/user/user-home">User Home</a>
+                </nav>
+                <nav>
+                    <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>
+                </nav>
+
+                <nav>
+                    <a (click)="openDeleteDialog()">Logout</a>
+                </nav>
+                <nav>
+                    <a>{{userName | titlecase}}</a>
+                </nav>
+            </div>
+            <div *ngSwitchCase="'seller'">
+                <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                <nav>
+                    <a routerLink="">Home</a>
+                </nav>
+                <nav>
+                    <a routerLink="seller/seller-home">Product List</a>
+                </nav>
+                <nav>
+                    <a (click)="openDeleteDialog()">Logout</a>
+                </nav>
+                <nav>
+                    <a>{{userName | titlecase}} (SELLER)</a>
+                </nav>
+            </div>
+            <div *ngSwitchCase="'admin'">
+                <img class="e-comm-logo" src="../././../assets/ecommlogo.png">
+                <nav>
+                    <a routerLink="">Home</a>
+                </nav>
+                <nav>
+                    <a routerLink="admin/admin-home">Admin Home</a>
+                </nav>
+                <nav>
+                    <a (click)="openDeleteDialog()">Logout</a>
+                </nav>
+                <nav>
+                    <a>{{userName | titlecase}} (ADMIN)</a>
+                </nav>
+            </div>
+        </div>
+
+    </mat-drawer>
+    <mat-toolbar class="example-toolbar">
+        <div class="ecomm-menue-heading">
+            <button mat-icon-button fxShow.lt-sm fxHide (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <h1 class="example-app-name">E-commerce Project</h1>
 
-            <div *ngIf="menuType==='default' || menuType ==='user'" class="searchBar">
-                <mat-form-field class="searchBar" appearance="fill">
-                    <input class="inputbox" #searchInput matInput type="text" placeholder="Search for products"
+            <img routerLink="/" style="width: 80px ; height : 53px ;" src="../././../assets/shopify-logo2.png">
+
+            <h1 routerLink="/" class="example-app-name">Shop online, shop smart</h1>
+        </div>
+        <!--  -->
+
+        <div class="searchBar2">
+            <div class="sB2">
+                <input [(ngModel)]="searchInputValue" *ngIf="isSearchVisible" class="inputbox e-comm-sm" matInput
+                    type="text" placeholder="Search for products" (keyup)="serchProduct($event)" (focus)="showList()"
+                    (blur)="hideList()">
+                <button class="e-comm-sm" mat-icon-button fxShow.lt-md (click)="toggleSearch()"
+                    (click)="submitSearch(searchInputValue)"> <mat-icon>search</mat-icon>
+                </button>
+            </div>
+            <mat-list *ngIf="showResults" class="suggestedResult2 e-comm-sm" role="list">
+                <a>
+                    <mat-list-item class="listItems" *ngFor="let item of searchProducts"
+                        (mousedown)="redirectToDetails(item.id)" role="listitem">{{item.name}}</mat-list-item>
+                </a>
+            </mat-list>
+        </div>
+        <!--  -->
+        <div *ngIf="menuType==='default' || menuType ==='user'" class="searchBar ">
+            <div class="searchBarMarginTop">
+                <mat-form-field class="searchBar " appearance="outline">
+                    <!-- appearance="fill" -->
+
+                    <input class="inputbox " #searchInput matInput type="text" placeholder="Search for products"
                         (keyup)="serchProduct($event)" (focus)="showList()" (blur)="hideList()">
 
                     <button (click)="submitSearch(searchInput.value)" mat-button matSuffix>
                         <mat-icon>search</mat-icon>
                     </button>
-                </mat-form-field>
-                <mat-list *ngIf="showResults" class="suggestedResult" role="list">
-                    <a>
 
-                        <mat-list-item class="listItems" *ngFor="let item of searchProducts"
-                            (mousedown)="redirectToDetails(item.id)" role="listitem">{{item.name}}</mat-list-item>
-                    </a>
-                </mat-list>
+                </mat-form-field>
+            </div>
+            <!-- </div> -->
+            <mat-list *ngIf="showResults && searchProducts && searchProducts.length > 0" class="suggestedResult"
+                role="list">
+                <a>
+                    <mat-list-item class="listItems" *ngFor="let item of searchProducts"
+                        (mousedown)="redirectToDetails(item.id)" role="listitem">{{item.name}}</mat-list-item>
+                </a>
+            </mat-list>
+        </div>
+
+        <!-- <markdown src="../../assets/Search.md"></markdown> -->
+
+        <div class="e-comm-md-device-nav" fxHide.lt-sm [ngSwitch]="menuType">
+            <div class="headernav" *ngSwitchCase="'default'">
+                <!-- <nav>  <h1 class="example-app-name">E-commerce Project</h1></nav> -->
+                <!-- <a routerLink="">Home</a> -->
+                <span routerLink="" matTooltip="Home" class="material-symbols-outlined">
+                    home
+                </span>
+
+                <a (click)="redirectToCart()"><span class="material-symbols-outlined" matTooltip="Cart">
+                        shopping_cart
+                    </span> ({{cartItems}})</a>
+                <!-- <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a>  -->
+                <span *ngIf="sellerOrAdmin">
+                    <!-- <a routerLink="/my-orders">My Orders</a> -->
+                    <span routerLink="/my-orders" class="material-symbols-outlined" matTooltip="Orders">
+                        orders
+                    </span>
+                </span>
+                <!-- <a routerLink="/user-auth/auth">Login</a> -->
+                <span routerLink="/user-auth/auth" class="material-symbols-outlined" matTooltip="Login">
+                    login
+                </span>
+            </div>
+            <div class="headernav" *ngSwitchCase="'user'">
+                <!-- <a routerLink="">Home</a> -->
+                <span routerLink="" matTooltip="Home" class="material-symbols-outlined">
+                    home
+                </span>
+                <a routerLink="/user/user-home">User Home</a>
+                <!-- <a [routerLink]="cartItems>0?'/cart-page':null">Cart ({{cartItems}})</a> -->
+                <a (click)="redirectToCart()"><span class="material-symbols-outlined" matTooltip="Cart">
+                        shopping_cart
+                    </span> ({{cartItems}})</a>
+                <!-- <a (click)="openDeleteDialog()">Logout</a> -->
+                <span (click)="openDeleteDialog()" matTooltip="logout" class="material-symbols-outlined">
+                    logout
+                </span>
+                <!-- <a>{{userName | titlecase}}</a> -->
+                <span (click)="openProfileDialog()" class="material-symbols-outlined" matTooltip="User Profile">
+                    account_circle
+                </span>
+            </div>
+            <div class="headernav" *ngSwitchCase="'seller'">
+                <!-- <a routerLink="">Home</a> -->
+                <span routerLink="" matTooltip="Home" class="material-symbols-outlined">
+                    home
+                </span>
+                <!-- <a routerLink="seller/seller-home">Product List</a> -->
+                <span routerLink="seller/seller-home" matTooltip="Product List" class="material-symbols-outlined">
+                    inventory_2
+                </span>
+                <!-- <a (click)="openDeleteDialog()">Logout</a> -->
+                <span (click)="openDeleteDialog()" matTooltip="logout" class="material-symbols-outlined">
+                    logout
+                </span>
+                <!-- <a>{{userName | titlecase}} (SELLER)</a> -->
+                <span (click)="openProfileDialog()" class="material-symbols-outlined" matTooltip="User Profile">
+                    account_circle
+                </span>
+            </div>
+            <div class="headernav" *ngSwitchCase="'admin'">
+                <!-- <a routerLink="">Home</a> -->
+                <span routerLink="" matTooltip="Home" class="material-symbols-outlined">
+                    home
+                </span>
+                <!-- <a routerLink="admin/admin-home">Admin Home</a> -->
+                <span routerLink="admin/admin-home" class="material-symbols-outlined" matTooltip="Admin Panel Settings">
+                    admin_panel_settings
+                </span>
+
+                <!-- <a (click)="openDeleteDialog()">Logout</a> -->
+
+                <span (click)="openDeleteDialog()" matTooltip="logout" class="material-symbols-outlined">
+                    logout
+                </span>
+
+                <!-- <a>{{userName | titlecase}} (ADMIN)</a> -->
+                <span (click)="openProfileDialog()" class="material-symbols-outlined" matTooltip="User Profile">
+                    account_circle
+                </span>
             </div>
 
-        </mat-toolbar>
-        <div class=" mainFrame">
+        </div>
+    </mat-toolbar>
+    <!-- <div class="e-comm-nav-bar"> -->
+    <nav *ngIf="urlValDefault" class="e-comm-nav-bar-2">
+        <!-- <button mat-icon-button fxShow.lt-sm fxHide (click)="drawer2.toggle()">
+            <mat-icon>menu2</mat-icon>
+        </button> -->
+        <div>
+            <ul>
+                <li (click)="getByCatagory('Super sports')">Super Sports</li>
+                <li (click)="getByCatagory('Sports Tourer')">Sports Tourer</li>
+                <li (click)="getByCatagory('adventure-sports')">Adventure</li>
+                <li (click)="getByCatagory('Hyper Sports')">Hyper Sports</li>
+
+                <li [matMenuTriggerFor]="ridingGearsMenu">Riding Gears</li>
+                <mat-menu #ridingGearsMenu="matMenu">
+                    <button mat-menu-item (click)="getByCatagory('Helmet')">Helmets</button>
+                    <button mat-menu-item (click)="getByCatagory('Jacket')">Jackets</button>
+                </mat-menu>
+            </ul>
+        </div>
+    </nav>
+    <!-- </div> -->
+
+
+    <div class=" mainFrame">
 
 
 
-            <!-- <div class="fixed-button-container">
+        <!-- <div class="fixed-button-container">
                 <button type="button" mat-button (click)="toggleDrawer()">
                     <ng-container *ngIf="isDrawerOpen; else drawerClosed">
                         << </ng-container>
@@ -109,20 +275,20 @@
                             </ng-template>
                 </button>
             </div> -->
-        </div>
-        <router-outlet></router-outlet>
-        <footer class="footer">
-            <div class="footer">
-                <div>
-                    <a>Become a Seller</a>
-                    <a>Polices, Terms and Conditions</a>
-                    <a>Help Center</a>
-                    <a>News</a>
-                    <a>FaceBook</a>
-                    <a>Instagram</a>
-                    <a>YouTube</a>
-                </div>
-                <div> Copyright 2023 E-commerce project</div>
+    </div>
+    <router-outlet></router-outlet>
+    <footer class="footer">
+        <div class="footer">
+            <div>
+                <a>Become a Seller</a>
+                <a>Polices, Terms and Conditions</a>
+                <a>Help Center</a>
+                <a>News</a>
+                <a>FaceBook</a>
+                <a>Instagram</a>
+                <a>YouTube</a>
             </div>
-        </footer>
-    </mat-drawer-container>
+            <div> Copyright 2023 E-commerce project</div>
+        </div>
+    </footer>
+</mat-drawer-container>

@@ -3,3 +3,19 @@
     margin-right: 10px;   
     width: 500px; 
 }
+.authPage{
+    margin-top: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        width: 95%;
+    }
+}
